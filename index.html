@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahnoor Sohail | Software Engineer & Flutter Developer Portfolio</title>
+    <meta name="description" content="Portfolio of Mahnoor Sohail, a Software Engineering student skilled in Flutter, Firebase, SQL, C++, and UI/UX design. Explore my ERP systems, database projects, and web development.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background grid decoration -->
+    <div class="bg-decorations">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-accent">&lt;</span>Mahnoor<span class="logo-accent">.dev /&gt;</span>
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#certificates" class="nav-link">Certificates</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="section-container hero-grid">
+                <div class="hero-content">
+                    <span class="hero-greeting">Hi there, I'm</span>
+                    <h1 class="hero-name">Mahnoor Sohail</h1>
+                    <h2 class="hero-title">
+                        <span class="static-txt">I am a </span>
+                        <span class="dynamic-txt" id="dynamic-txt">Software Engineer</span>
+                    </h2>
+                    <p class="hero-desc">
+                        Software Engineering student at Superior University with a strong CGPA of <strong>3.85/4.0</strong>. I specialize in building high-performance mobile apps with <strong>Flutter & Firebase</strong>, developing robust database schemas with <strong>SQL/MySQL</strong>, and creating responsive web applications.
+                    </p>
+                    <div class="hero-ctas">
+                        <a href="#projects" class="btn btn-primary">View Projects <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                        <a href="#about" class="btn btn-tertiary"><i class="fa-solid fa-download"></i> View Quick Bio</a>
+                    </div>
+                </div>
+                <div class="hero-graphic">
+                    <div class="graphic-wrapper">
+                        <img src="assets/images/developer.png" alt="Developer Coding illustration" class="hero-img">
+                        <div class="tech-badge badge-flutter"><i class="fa-brands fa-flutter"></i> Flutter</div>
+                        <div class="tech-badge badge-firebase"><i class="fa-solid fa-fire"></i> Firebase</div>
+                        <div class="tech-badge badge-db"><i class="fa-solid fa-database"></i> SQL</div>
+                        <div class="tech-badge badge-cpp">C++</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#about" class="scroll-indicator" aria-label="Scroll to About section">
+                <span>Scroll Down</span>
+                <i class="fa-solid fa-chevron-down bounce"></i>
+            </a>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="subtitle">01. Biography</span>
+                    <h2 class="title">About Me</h2>
+                    <div class="header-line"></div>
+                </div>
+                
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>
+                            I am currently pursuing a <strong>Bachelor's degree in Software Engineering (2023-2027)</strong> at <strong>Superior University, Lahore</strong>. Throughout my studies, I have maintained an outstanding academic record (<strong>GPA: 3.85/4.0</strong>) while gaining extensive hands-on experience by building real-world projects.
+                        </p>
+                        <p>
+                            My development journey is centered around creating clean, optimized, and user-centric solutions. Whether designing mobile client architectures in Flutter, writing complex database queries, or simulating system algorithms in C++, I focus on writing high-quality code and optimizing execution speed.
+                        </p>
+                        <p>
+                            Outside of writing code, I love brainstorming UI/UX improvements, solving algorithmic problems, and participating in collaborative team environments.
+                        </p>
+                        
+                        <div class="education-card">
+                            <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div class="edu-details">
+                                <h3>Bachelor in Software Engineering</h3>
+                                <p class="edu-univ">Superior University, Lahore</p>
+                                <div class="edu-meta">
+                                    <span class="edu-date"><i class="fa-regular fa-calendar"></i> 2023 - 2027</span>
+                                    <span class="edu-gpa"><i class="fa-solid fa-star"></i> GPA: 3.85 / 4.0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-skills-soft">
+                        <h3 class="soft-skills-title">Core Principles & Soft Skills</h3>
+                        <div class="soft-skills-grid">
+                            <div class="soft-skill-card">
+                                <div class="icon-wrap"><i class="fa-solid fa-brain"></i></div>
+                                <h4>Critical Thinking</h4>
+                                <p>Analyzing process bottlenecks and engineering optimal system logic.</p>
+                            </div>
+                            <div class="soft-skill-card">
+                                <div class="icon-wrap"><i class="fa-solid fa-users"></i></div>
+                                <h4>Teamwork</h4>
+                                <p>Collaborating effectively with team members, aligning on goals, and hosting presentations.</p>
+                            </div>
+                            <div class="soft-skill-card">
+                                <div class="icon-wrap"><i class="fa-solid fa-lightbulb"></i></div>
+                                <h4>Problem-Solving</h4>
+                                <p>Applying data structures and algorithms to resolve real-world bottlenecks.</p>
+                            </div>
+                            <div class="soft-skill-card">
+                                <div class="icon-wrap"><i class="fa-solid fa-comments"></i></div>
+                                <h4>Communication</h4>
+                                <p>Bridging the gap between technical system capabilities and user-friendly requirements.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="subtitle">02. Expertise</span>
+                    <h2 class="title">My Skills</h2>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- Category 1: Mobile App Development -->
+                    <div class="skills-category-card">
+                        <div class="cat-header">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                            <h3>Mobile App Development</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Flutter</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Firebase (Auth, Firestore, Cloud)</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Android Studio</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 2: Programming & Databases -->
+                    <div class="skills-category-card">
+                        <div class="cat-header">
+                            <i class="fa-solid fa-code"></i>
+                            <h3>Programming & Databases</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>C++ (OOP, DS, File I/O)</span>
+                                    <span>88%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" style="width: 88%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>SQL</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>MySQL (ER Models, Normalization)</span>
+                                    <span>82%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" style="width: 82%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 3: Web & Systems -->
+                    <div class="skills-category-card">
+                        <div class="cat-header">
+                            <i class="fa-solid fa-globe"></i>
+                            <h3>Web & Systems</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>HTML5 & CSS3</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>JavaScript (Basic ES6)</span>
+                                    <span>65%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" style="width: 65%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Web Engineering & BPE Redesign</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="subtitle">03. Career Path</span>
+                    <h2 class="title">Work Experience</h2>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="timeline">
+                    <!-- Experience Item 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2026.01 - 2026.02</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title-bar">
+                                <h3>Software Engineer Intern</h3>
+                                <span class="company">Code Alpha <span class="badge-rem">Remote</span></span>
+                            </div>
+                            <p class="location"><i class="fa-solid fa-location-dot"></i> Lahore, Punjab, Pakistan (Remote)</p>
+                            <ul class="experience-details">
+                                <li>Supported staff members in their daily development workflows, reducing workload burdens and allowing teams to focus on core platform releases.</li>
+                                <li>Gained hands-on experience in production environments, applying core engineering principles and software paradigms directly to codebases.</li>
+                                <li>Analyzed architectural bottlenecks, collaborated in agile teams to propose solutions, and refined user flows.</li>
+                                <li>Contributed to a productive team environment by co-authoring presentation materials and developing features in group projects.</li>
+                            </ul>
+                            <div class="experience-tech-tags">
+                                <span>Software Development</span>
+                                <span>Agile Processes</span>
+                                <span>Workflow Optimization</span>
+                                <span>Problem-Solving</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="subtitle">04. Selected Works</span>
+                    <h2 class="title">My Projects</h2>
+                    <div class="header-line"></div>
+                </div>
+
+                <!-- Projects Filters -->
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="mobile">Flutter / Mobile</button>
+                    <button class="filter-btn" data-filter="db">Databases & SQL</button>
+                    <button class="filter-btn" data-filter="cpp">C++ & Systems</button>
+                </div>
+
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Project 1: EduManage ERP -->
+                    <div class="project-card" data-category="mobile">
+                        <div class="project-card-header">
+                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/mahnoor28-code/EDUMANAGE" target="_blank" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                                <a href="#" class="project-demo-link" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-title">EduManage ERP</h3>
+                            <p class="project-desc">
+                                A comprehensive role-based school management app designed to streamline administration, class scheduling, and parent-teacher communication. Boosted overall communication speed by 40% using Firebase push notifications.
+                            </p>
+                            <ul class="project-features">
+                                <li>Secure role-based views (Admins, Teachers, Students, Parents).</li>
+                                <li>Real-time attendance logs & gradebook tracking.</li>
+                                <li>Integrated payment reports and assignment submittals.</li>
+                            </ul>
+                        </div>
+                        <div class="project-card-footer">
+                            <div class="project-tags">
+                                <span>Flutter</span>
+                                <span>Firebase</span>
+                                <span>Dart</span>
+                                <span>ERP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Hotel Management System (SQL + C++) -->
+                    <div class="project-card" data-category="db">
+                        <div class="project-card-header">
+                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="#" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                                <a href="#" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-title">Hotel Booking & Billing Engine</h3>
+                            <p class="project-desc">
+                                A desktop system powered by a SQL relational backend containing over 15 interconnected tables. Implemented transaction management, triggers for room check-ins, and complex stored procedures for booking generation.
+                            </p>
+                            <ul class="project-features">
+                                <li>Triggers prevent duplicate bookings and room over-allocations.</li>
+                                <li>Stored procedures automate multi-room discounted invoice generation.</li>
+                                <li>Audit logs track all checkout operations automatically.</li>
+                            </ul>
+                        </div>
+                        <div class="project-card-footer">
+                            <div class="project-tags">
+                                <span>C++</span>
+                                <span>SQL Server</span>
+                                <span>Database Design</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: DBMS Hotel Management (MySQL) -->
+                    <div class="project-card" data-category="db">
+                        <div class="project-card-header">
+                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="#" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                                <a href="#" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-title">MySQL Hotel Operations Schema</h3>
+                            <p class="project-desc">
+                                A database implementation focused on optimal normalization (BCNF) and high performance. Handled ER modeling, functional dependency analyses, and created visual schema relational graphs.
+                            </p>
+                            <ul class="project-features">
+                                <li>Normalized schema minimizes data redundancy and update anomalies.</li>
+                                <li>Optimized index layouts reducing query response time for search operations.</li>
+                                <li>Detailed ER diagram mappings translate directly to structured tables.</li>
+                            </ul>
+                        </div>
+                        <div class="project-card-footer">
+                            <div class="project-tags">
+                                <span>MySQL</span>
+                                <span>ER Modeling</span>
+                                <span>Normalization</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Ride-Hailing System Redesign (BPE) -->
+                    <div class="project-card" data-category="mobile">
+                        <div class="project-card-header">
+                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="#" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                                <a href="#" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-title">Ride-Hailing Workflow Redesign</h3>
+                            <p class="project-desc">
+                                A Business Process Engineering (BPE) study that restructured the matchmaking process in ride-hailing apps. Redesigned dispatch algorithms and simulated workflows, reducing cancellation ratios by 60%.
+                            </p>
+                            <ul class="project-features">
+                                <li>Workflow redesign resulted in 65% faster driver-to-rider matching.</li>
+                                <li>Simulated matching rules optimized driver routes during surge times.</li>
+                                <li>Modeled user-centric touchpoints to curb early booking dropouts.</li>
+                            </ul>
+                        </div>
+                        <div class="project-card-footer">
+                            <div class="project-tags">
+                                <span>BPE</span>
+                                <span>Workflow Simulation</span>
+                                <span>UI/UX Architecture</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: Library Management System (C++ + OS) -->
+                    <div class="project-card" data-category="cpp">
+                        <div class="project-card-header">
+                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="#" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                                <a href="#" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-title">SJF Library Queue Simulator</h3>
+                            <p class="project-desc">
+                                An educational system integrating operating systems and data structures. Simulates book checkouts and return requests utilizing the Shortest Job First (SJF) scheduling algorithm.
+                            </p>
+                            <ul class="project-features">
+                                <li>Models checkout queues to prevent resource starvation.</li>
+                                <li>Visualizes process timelines showing waiting and turnaround times.</li>
+                                <li>Schedules checkout jobs using structured heap priority queues in memory.</li>
+                            </ul>
+                        </div>
+                        <div class="project-card-footer">
+                            <div class="project-tags">
+                                <span>C++</span>
+                                <span>OS Algorithms</span>
+                                <span>SJF Scheduling</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6: Contact Management System (C++) -->
+                    <div class="project-card" data-category="cpp">
+                        <div class="project-card-header">
+                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="#" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                                <a href="#" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-title">Pointer-Based Contact Manager</h3>
+                            <p class="project-desc">
+                                A console-based app organizing directories through custom data structures. Implemented CRUD operations using dynamic singly linked lists, custom search keys, and file I/O operations.
+                            </p>
+                            <ul class="project-features">
+                                <li>Maintains dynamically allocated nodes in memory to ensure light footprints.</li>
+                                <li>Integrates alphabetical sorting and instant search by contact names.</li>
+                                <li>Saves, reads, and updates state persistently in local text archives.</li>
+                            </ul>
+                        </div>
+                        <div class="project-card-footer">
+                            <div class="project-tags">
+                                <span>C++</span>
+                                <span>Data Structures</span>
+                                <span>File I/O</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates Section -->
+        <section id="certificates" class="certificates-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="subtitle">05. Credentials</span>
+                    <h2 class="title">Certifications</h2>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="certificates-grid">
+                    <!-- Cert 1 -->
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+                        <div class="cert-content">
+                            <h3>Introduction to SQL</h3>
+                            <p class="cert-issuer">SoloLearn</p>
+                            <p class="cert-desc">Validated knowledge on relational databases, query structure, indexing, aggregation, and joining techniques.</p>
+                        </div>
+                    </div>
+                    <!-- Cert 2 -->
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+                        <div class="cert-content">
+                            <h3>Introduction to HTML</h3>
+                            <p class="cert-issuer">SoloLearn</p>
+                            <p class="cert-desc">Covered semantic tags, structure creation, embedding media, and document structure essentials.</p>
+                        </div>
+                    </div>
+                    <!-- Cert 3 -->
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-hands-helping"></i></div>
+                        <div class="cert-content">
+                            <h3>Volunteer Certificate (x2)</h3>
+                            <p class="cert-issuer">Alkhidmat Foundation</p>
+                            <p class="cert-desc">Awarded for active community participation, leadership, and providing volunteer support during public events.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="subtitle">06. Get In Touch</span>
+                    <h2 class="title">Contact Me</h2>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Let's Collaborate!</h3>
+                        <p class="contact-intro">
+                            I am always open to discussing new software development opportunities, internship roles, mobile app ideas, or DBMS integrations. Drop me a message and I'll get back to you!
+                        </p>
+                        
+                        <div class="contact-details">
+                            <a href="mailto:Sohailmahnoor52@gmail.com" class="contact-item">
+                                <div class="item-icon"><i class="fa-regular fa-envelope"></i></div>
+                                <div class="item-text">
+                                    <span>Email Me</span>
+                                    <strong>Sohailmahnoor52@gmail.com</strong>
+                                </div>
+                            </a>
+                            <a href="tel:+923201441227" class="contact-item">
+                                <div class="item-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                                <div class="item-text">
+                                    <span>Call Me</span>
+                                    <strong>(+92) 320-1441227</strong>
+                                </div>
+                            </a>
+                            <div class="contact-item">
+                                <div class="item-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                <div class="item-text">
+                                    <span>Location</span>
+                                    <strong>Lahore, Punjab, Pakistan</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-socials">
+                            <h4>Connect with me on social platforms:</h4>
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/in/mahnoor-sohail-a1449936b/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="https://github.com/mahnoor28-code" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-container">
+                        <form id="contact-form" class="contact-form" autocomplete="off">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" placeholder=" " required>
+                                <label for="name">Your Name</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder=" " required>
+                                <label for="email">Your Email Address</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="subject" name="subject" placeholder=" " required>
+                                <label for="subject">Subject</label>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
+                                <label for="message">Your Message</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-submit">
+                                Send Message <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                            <div class="form-message" id="form-message"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="copyright">Designed & Built by Mahnoor Sohail &copy; 2026. All Rights Reserved.</p>
+            <a href="#home" class="to-top" aria-label="Scroll back to top">
+                <i class="fa-solid fa-arrow-up"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
