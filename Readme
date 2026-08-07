@@ -1,0 +1,34 @@
+# Mahnoor Sohail — Personal Developer Portfolio
+
+Live: https://mahnoor28-code.github.io/portfolio/
+
+Built for the Khizex Frontend Engineering Internship — Week 6 Portfolio Assignment.
+
+## Tech Stack
+
+- **Plain HTML5 / CSS3 / vanilla JavaScript** — no framework or build step, by design. A single-page portfolio doesn't need React/Vite overhead; the goal here was hand-written, dependency-free code that's easy for anyone to read and deploy as-is.
+- **Google Fonts** (Outfit for headings, Inter for body) and **Font Awesome** for icons, loaded via CDN.
+- **Deployment:** GitHub Pages, served directly from this repo's `main` branch.
+
+## Projects Section — Structure
+
+Project entries are hardcoded directly into `index.html` as repeated `.project-card` blocks inside `#projects-grid`, rather than pulled from a JSON data file. With only 4 real internship projects (plus a smaller academic archive), a local data file + render loop would have added indirection without a real payoff at this scale — the tradeoff to revisit if the list grows past ~10 entries.
+
+Each card carries a `data-category` attribute (`library`, `realtime`, `3d`, `offline`) used purely for the client-side filter buttons in `script.js` — no backend, no build-time processing.
+
+Two separate grids:
+1. **`#projects-grid`** — the four Khizex internship builds (Weeks 1–4), ordered most-recent-first: HeadlessHydra → Ping → 3D Scroll Landing → Offline-First Shoe Store.
+2. **`#academic-projects` grid** — earlier university coursework and personal projects, kept as a lower-priority archive so the primary Projects section stays focused on internship work.
+
+## Design Decisions
+
+- **CSS custom properties (`:root` variables)** drive the entire color/spacing system, so the light/dark theme toggle is just a matter of swapping variable values on `[data-theme]` rather than duplicating rules.
+- **Theme preference** is read from `localStorage`, falling back to the OS-level `prefers-color-scheme` on first visit.
+- **Mobile nav** collapses into a hamburger-triggered menu below the tablet breakpoint rather than shrinking the full link list.
+- **Contact form** is client-side only (no backend) — it validates required fields, shows an inline error state on empty submission, and simulates a network round-trip before showing a success state, so the interaction never silently no-ops.
+- Project cards without a live deployment link the **GitHub repository only**, rather than pointing a "Live Demo" icon at a dead `#`.
+
+## Known Limitations
+
+- Only **HeadlessHydra** has a public live deployment (Vercel) — the other three internship projects are local-run builds, so their cards link to source only, per the assignment's fallback rule.
+- The academic-archive section is intentionally lighter-weight (no feature bullet points, no live/demo links) since it's secondary to the internship work being evaluated.

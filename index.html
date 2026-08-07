@@ -323,183 +323,256 @@
                 <!-- Projects Filters -->
                 <div class="project-filters">
                     <button class="filter-btn active" data-filter="all">All Projects</button>
-                    <button class="filter-btn" data-filter="mobile">Flutter / Mobile</button>
-                    <button class="filter-btn" data-filter="db">Databases & SQL</button>
-                    <button class="filter-btn" data-filter="cpp">C++ & Systems</button>
+                    <button class="filter-btn" data-filter="library">TS Library</button>
+                    <button class="filter-btn" data-filter="realtime">Real-Time UI</button>
+                    <button class="filter-btn" data-filter="3d">3D / WebGL</button>
+                    <button class="filter-btn" data-filter="offline">Offline-First</button>
                 </div>
 
                 <div class="projects-grid" id="projects-grid">
-                    <!-- Project 1: EduManage ERP -->
-                    <div class="project-card" data-category="mobile">
+                    <!-- Project 1: HeadlessHydra -->
+                    <div class="project-card" data-category="library">
+                        <div class="project-card-header">
+                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/mahnoor28-code/HeadlessHydra" target="_blank" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                                <a href="https://headless-hydra.vercel.app" target="_blank" class="project-demo-link" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-title">HeadlessHydra — Combobox Library</h3>
+                            <p class="project-desc">
+                                A headless <code>useCombobox&lt;TItem&gt;</code> React hook built for the Khizex Frontend Engineering Internship. Solves the problem of shipping a fully accessible, unstyled combobox that any team can drop into their own design system without fighting a component library's CSS.
+                            </p>
+                            <ul class="project-features">
+                                <li>Full ARIA combobox pattern with complete keyboard navigation.</li>
+                                <li>Sync and async filtering, plus multi-select with chip rendering.</li>
+                                <li>Event delegation for performance on large, dynamic option lists.</li>
+                            </ul>
+                        </div>
+                        <div class="project-card-footer">
+                            <div class="project-tags">
+                                <span>React 18</span>
+                                <span>Strict TypeScript</span>
+                                <span>Vite</span>
+                                <span>ARIA</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Ping - Real-Time Messenger -->
+                    <div class="project-card" data-category="realtime">
+                        <div class="project-card-header">
+                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/mahnoor28-code/khizex-ping" target="_blank" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-title">Ping — Real-Time Messenger</h3>
+                            <p class="project-desc">
+                                A chat interface that stays calm and correct while messages arrive asynchronously, mid-type, or in bursts. Solves smart auto-scroll (never yanking a user who's reading history) and non-blocking input while a mock WebSocket transport pushes live traffic.
+                            </p>
+                            <ul class="project-features">
+                                <li>Smart auto-scroll with a "New messages ↓" affordance instead of a forced jump.</li>
+                                <li>Read receipts (sent → delivered → read) over a realistic mock transport.</li>
+                                <li>Zero <code>any</code> in the codebase; aria-live regions for screen readers.</li>
+                            </ul>
+                        </div>
+                        <div class="project-card-footer">
+                            <div class="project-tags">
+                                <span>React 18</span>
+                                <span>Strict TypeScript</span>
+                                <span>useReducer</span>
+                                <span>a11y</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: 3D Scroll-Driven Landing Page -->
+                    <div class="project-card" data-category="3d">
+                        <div class="project-card-header">
+                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/mahnoor28-code/khizex-scroll-landing" target="_blank" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-title">3D Scroll-Driven Landing Page <span class="score-pill">9.5/10</span></h3>
+                            <p class="project-desc">
+                                An Apple-style product page where a 3D model rotates, lifts, and reframes in lockstep with scroll position. Solves the "pinned section that scrubs forward and backward exactly" problem using GSAP ScrollTrigger and Lenis smooth scroll.
+                            </p>
+                            <ul class="project-features">
+                                <li>Typed keyframe timeline drives model rotation, position, and camera distance.</li>
+                                <li>Auto-fallback to a static image for no-WebGL, reduced-motion, or low-memory devices.</li>
+                                <li>3D scene code-split and lazy-mounted; render loop pauses when off-screen.</li>
+                            </ul>
+                        </div>
+                        <div class="project-card-footer">
+                            <div class="project-tags">
+                                <span>React + Three.js</span>
+                                <span>GSAP ScrollTrigger</span>
+                                <span>Lenis</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Offline-First Shoe Store -->
+                    <div class="project-card" data-category="offline">
+                        <div class="project-card-header">
+                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/mahnoor28-code/khizex-shoe-store" target="_blank" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-title">Offline-First Shoe Store</h3>
+                            <p class="project-desc">
+                                A shoe store frontend built around one idea: the network is going to misbehave, and the UI should keep working anyway. 3D product viewing is the visual centerpiece; a hand-written offline queue is the actual engineering point.
+                            </p>
+                            <ul class="project-features">
+                                <li>Hand-written Service Worker queues failed requests and flushes on reconnect.</li>
+                                <li>Cart logic lives entirely in a Web Worker, persisted to raw IndexedDB.</li>
+                                <li>A finite state machine physically blocks checkout while a sync is pending.</li>
+                            </ul>
+                        </div>
+                        <div class="project-card-footer">
+                            <div class="project-tags">
+                                <span>React + Three.js</span>
+                                <span>Service Workers</span>
+                                <span>IndexedDB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic & Personal Projects Section -->
+        <section id="academic-projects" class="projects-section academic-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="subtitle">04b. Academic Archive</span>
+                    <h2 class="title">Academic & Personal Projects</h2>
+                    <div class="header-line"></div>
+                    <p class="section-subtext">Earlier coursework and personal builds, from before the Khizex internship.</p>
+                </div>
+
+                <div class="projects-grid academic-grid">
+                    <!-- EduManage ERP -->
+                    <div class="project-card">
                         <div class="project-card-header">
                             <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
                             <div class="project-links">
                                 <a href="https://github.com/mahnoor28-code/EDUMANAGE" target="_blank" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
-                                <a href="#" class="project-demo-link" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                             </div>
                         </div>
                         <div class="project-card-body">
                             <h3 class="project-title">EduManage ERP</h3>
                             <p class="project-desc">
-                                A comprehensive role-based school management app designed to streamline administration, class scheduling, and parent-teacher communication. Boosted overall communication speed by 40% using Firebase push notifications.
+                                A role-based school management app for administration, class scheduling, and parent-teacher communication, with Firebase-powered push notifications.
                             </p>
-                            <ul class="project-features">
-                                <li>Secure role-based views (Admins, Teachers, Students, Parents).</li>
-                                <li>Real-time attendance logs & gradebook tracking.</li>
-                                <li>Integrated payment reports and assignment submittals.</li>
-                            </ul>
                         </div>
                         <div class="project-card-footer">
                             <div class="project-tags">
                                 <span>Flutter</span>
                                 <span>Firebase</span>
                                 <span>Dart</span>
-                                <span>ERP</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 2: Hotel Management System (SQL + C++) -->
-                    <div class="project-card" data-category="db">
+                    <!-- Hotel Booking & Billing Engine -->
+                    <div class="project-card">
                         <div class="project-card-header">
                             <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-                            <div class="project-links">
-                                <a href="#" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
-                                <a href="#" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
                         </div>
                         <div class="project-card-body">
                             <h3 class="project-title">Hotel Booking & Billing Engine</h3>
                             <p class="project-desc">
-                                A desktop system powered by a SQL relational backend containing over 15 interconnected tables. Implemented transaction management, triggers for room check-ins, and complex stored procedures for booking generation.
+                                A desktop system powered by a SQL relational backend with 15+ interconnected tables, transaction management, and stored procedures for booking generation.
                             </p>
-                            <ul class="project-features">
-                                <li>Triggers prevent duplicate bookings and room over-allocations.</li>
-                                <li>Stored procedures automate multi-room discounted invoice generation.</li>
-                                <li>Audit logs track all checkout operations automatically.</li>
-                            </ul>
                         </div>
                         <div class="project-card-footer">
                             <div class="project-tags">
                                 <span>C++</span>
                                 <span>SQL Server</span>
-                                <span>Database Design</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 3: DBMS Hotel Management (MySQL) -->
-                    <div class="project-card" data-category="db">
+                    <!-- MySQL Hotel Operations Schema -->
+                    <div class="project-card">
                         <div class="project-card-header">
                             <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-                            <div class="project-links">
-                                <a href="#" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
-                                <a href="#" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
                         </div>
                         <div class="project-card-body">
                             <h3 class="project-title">MySQL Hotel Operations Schema</h3>
                             <p class="project-desc">
-                                A database implementation focused on optimal normalization (BCNF) and high performance. Handled ER modeling, functional dependency analyses, and created visual schema relational graphs.
+                                A normalized (BCNF) database design with full ER modeling, functional dependency analysis, and visual schema relational graphs.
                             </p>
-                            <ul class="project-features">
-                                <li>Normalized schema minimizes data redundancy and update anomalies.</li>
-                                <li>Optimized index layouts reducing query response time for search operations.</li>
-                                <li>Detailed ER diagram mappings translate directly to structured tables.</li>
-                            </ul>
                         </div>
                         <div class="project-card-footer">
                             <div class="project-tags">
                                 <span>MySQL</span>
                                 <span>ER Modeling</span>
-                                <span>Normalization</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 4: Ride-Hailing System Redesign (BPE) -->
-                    <div class="project-card" data-category="mobile">
+                    <!-- Ride-Hailing Workflow Redesign -->
+                    <div class="project-card">
                         <div class="project-card-header">
                             <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-                            <div class="project-links">
-                                <a href="#" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
-                                <a href="#" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
                         </div>
                         <div class="project-card-body">
                             <h3 class="project-title">Ride-Hailing Workflow Redesign</h3>
                             <p class="project-desc">
-                                A Business Process Engineering (BPE) study that restructured the matchmaking process in ride-hailing apps. Redesigned dispatch algorithms and simulated workflows, reducing cancellation ratios by 60%.
+                                A Business Process Engineering study that restructured ride-hailing dispatch and matchmaking, cutting cancellation ratios by 60% in simulation.
                             </p>
-                            <ul class="project-features">
-                                <li>Workflow redesign resulted in 65% faster driver-to-rider matching.</li>
-                                <li>Simulated matching rules optimized driver routes during surge times.</li>
-                                <li>Modeled user-centric touchpoints to curb early booking dropouts.</li>
-                            </ul>
                         </div>
                         <div class="project-card-footer">
                             <div class="project-tags">
                                 <span>BPE</span>
                                 <span>Workflow Simulation</span>
-                                <span>UI/UX Architecture</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 5: Library Management System (C++ + OS) -->
-                    <div class="project-card" data-category="cpp">
+                    <!-- SJF Library Queue Simulator -->
+                    <div class="project-card">
                         <div class="project-card-header">
                             <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-                            <div class="project-links">
-                                <a href="#" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
-                                <a href="#" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
                         </div>
                         <div class="project-card-body">
                             <h3 class="project-title">SJF Library Queue Simulator</h3>
                             <p class="project-desc">
-                                An educational system integrating operating systems and data structures. Simulates book checkouts and return requests utilizing the Shortest Job First (SJF) scheduling algorithm.
+                                Simulates book checkouts and returns using the Shortest Job First scheduling algorithm, visualizing waiting and turnaround times.
                             </p>
-                            <ul class="project-features">
-                                <li>Models checkout queues to prevent resource starvation.</li>
-                                <li>Visualizes process timelines showing waiting and turnaround times.</li>
-                                <li>Schedules checkout jobs using structured heap priority queues in memory.</li>
-                            </ul>
                         </div>
                         <div class="project-card-footer">
                             <div class="project-tags">
                                 <span>C++</span>
                                 <span>OS Algorithms</span>
-                                <span>SJF Scheduling</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 6: Contact Management System (C++) -->
-                    <div class="project-card" data-category="cpp">
+                    <!-- Pointer-Based Contact Manager -->
+                    <div class="project-card">
                         <div class="project-card-header">
                             <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-                            <div class="project-links">
-                                <a href="#" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
-                                <a href="#" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
                         </div>
                         <div class="project-card-body">
                             <h3 class="project-title">Pointer-Based Contact Manager</h3>
                             <p class="project-desc">
-                                A console-based app organizing directories through custom data structures. Implemented CRUD operations using dynamic singly linked lists, custom search keys, and file I/O operations.
+                                A console CRUD app built on dynamic singly linked lists, with alphabetical sorting, instant search, and persistent file I/O.
                             </p>
-                            <ul class="project-features">
-                                <li>Maintains dynamically allocated nodes in memory to ensure light footprints.</li>
-                                <li>Integrates alphabetical sorting and instant search by contact names.</li>
-                                <li>Saves, reads, and updates state persistently in local text archives.</li>
-                            </ul>
                         </div>
                         <div class="project-card-footer">
                             <div class="project-tags">
                                 <span>C++</span>
                                 <span>Data Structures</span>
-                                <span>File I/O</span>
                             </div>
                         </div>
                     </div>

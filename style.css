@@ -362,6 +362,41 @@ section {
     margin-top: 12px;
 }
 
+.section-header .section-subtext {
+    margin-top: 14px;
+    color: var(--text-secondary);
+    font-size: 0.98rem;
+    max-width: 600px;
+}
+
+.score-pill {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--bg-primary);
+    background-color: var(--accent);
+    padding: 2px 9px;
+    border-radius: var(--radius-full);
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.academic-section {
+    padding-top: 20px;
+}
+
+.academic-grid .project-card {
+    opacity: 0.92;
+}
+
+.project-card-body code {
+    background: var(--bg-tertiary);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    color: var(--accent);
+}
+
 /* Hero Section */
 .hero-section {
     min-height: 100vh;
