@@ -30,5 +30,4 @@ Two separate grids:
 
 ## Known Limitations
 
-- Only **HeadlessHydra** has a public live deployment (Vercel) — the other three internship projects are local-run builds, so their cards link to source only, per the assignment's fallback rule.
 - The academic-archive section is intentionally lighter-weight (no feature bullet points, no live/demo links) since it's secondary to the internship work being evaluated.
