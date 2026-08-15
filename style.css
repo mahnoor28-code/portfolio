@@ -1088,6 +1088,22 @@ section {
     color: #0a66c2;
 }
 
+.testimonial-card .cert-icon {
+    color: var(--accent);
+    font-size: 1.6rem;
+}
+
+.testimonial-quote {
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 14px;
+}
+
+.testimonial-name {
+    font-size: 1rem;
+    margin-top: 8px;
+}
+
 /* Contact Section */
 .contact-grid {
     display: grid;
