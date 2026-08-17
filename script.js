@@ -370,4 +370,322 @@ document.addEventListener('DOMContentLoaded', () => {
             toast.classList.remove('is-visible');
         }, 2200);
     }
+
+    // -------------------------------------------------------------
+    // 10. Mouse Glow Follower logic
+    // -------------------------------------------------------------
+    const mouseGlow = document.getElementById('mouse-glow');
+    if (mouseGlow) {
+        document.addEventListener('mousemove', (e) => {
+            mouseGlow.style.left = e.clientX + 'px';
+            mouseGlow.style.top = e.clientY + 'px';
+        });
+    }
+
+    // -------------------------------------------------------------
+    // 11. Statistics Counter Animation
+    // -------------------------------------------------------------
+    const statNumbers = document.querySelectorAll('.stat-num');
+    
+    const animateStats = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+                const targetValue = parseFloat(target.getAttribute('data-target'));
+                const isDecimal = targetValue % 1 !== 0;
+                const duration = 1500; // ms
+                const startTime = performance.now();
+                
+                const updateCounter = (currentTime) => {
+                    const elapsedTime = currentTime - startTime;
+                    const progress = Math.min(elapsedTime / duration, 1);
+                    
+                    // Easing out quadratic
+                    const easeProgress = progress * (2 - progress);
+                    
+                    let currentValue = easeProgress * targetValue;
+                    if (isDecimal) {
+                        target.textContent = currentValue.toFixed(2);
+                    } else {
+                        target.textContent = Math.floor(currentValue);
+                    }
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        target.textContent = isDecimal ? targetValue.toFixed(2) : targetValue;
+                    }
+                };
+                
+                requestAnimationFrame(updateCounter);
+                observer.unobserve(target); // Only animate once
+            }
+        });
+    };
+    
+    const statsObserver = new IntersectionObserver(animateStats, {
+        threshold: 0.5
+    });
+    
+    statNumbers.forEach(stat => statsObserver.observe(stat));
+
+    // -------------------------------------------------------------
+    // 12. Skills Tab selector logic
+    // -------------------------------------------------------------
+    const skillTabs = document.querySelectorAll('.skills-tab-btn');
+    const skillPanes = document.querySelectorAll('.skills-pane');
+    
+    skillTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove active classes
+            skillTabs.forEach(t => t.classList.remove('active'));
+            skillPanes.forEach(p => p.classList.remove('active'));
+            
+            // Add active to clicked tab
+            tab.classList.add('active');
+            
+            // Show matching pane
+            const targetTabId = 'tab-' + tab.getAttribute('data-tab');
+            const targetPane = document.getElementById(targetTabId);
+            if (targetPane) {
+                targetPane.classList.add('active');
+            }
+        });
+    });
+
+    // -------------------------------------------------------------
+    // 13. Project Detail Drawer Modal logic
+    // -------------------------------------------------------------
+    const projectsData = {
+        headlesshydra: {
+            title: 'HeadlessHydra — Combobox Library',
+            desc: 'A headless useCombobox React hook designed for modern web applications. It implements a design-agnostic, behavior-only logic that lets developers drop autocomplete capabilities into any custom design system, maintaining complete creative control.',
+            challenges: [
+                'Implementing the full ARIA 1.2 Combobox pattern including screen reader support and aria-live status regions.',
+                'Optimizing keyboard navigation (ArrowUp/ArrowDown, Enter, Escape, Home/End) across huge list elements without locking the browser UI.',
+                'Building a performant multi-select selection state using state machine event delegation.'
+            ],
+            contributions: 'Spearheaded full architectural design of the library, wrote the complete test suite verifying keyboard events, and authored typescript types for drop-in type safety.',
+            category: 'TS Library / Frontend Utility',
+            tags: ['React 18', 'Strict TypeScript', 'Vite', 'ARIA 1.2', 'a11y'],
+            github: 'https://github.com/mahnoor28-code/HeadlessHydra',
+            demo: 'https://headless-hydra.vercel.app'
+        },
+        ping: {
+            title: 'Ping — Real-Time Messenger',
+            desc: 'A real-time reactive chat interface engineered for high throughput. It maintains a consistent, high-performance messaging interface under bursts of concurrent WebSocket events.',
+            challenges: [
+                'Resolving layout scroll-yank when new messages arrive while a user is scrolling history.',
+                'Implementing optimistic UI updates that seamlessly sync with a simulated mock WebSocket server.',
+                'Handling bulk list re-renders using event delegation and useMemo/useCallback optimizations.'
+            ],
+            contributions: 'Built the state controller via useReducer, implemented scroll tracking hooks to display "New messages ↓" anchors, and authored real-time websocket mock server logic.',
+            category: 'Real-Time Web Application',
+            tags: ['React 18', 'TypeScript', 'useReducer', 'WebSockets', 'a11y'],
+            github: 'https://github.com/mahnoor28-code/khizex-ping',
+            demo: 'https://khizex-ping.vercel.app/'
+        },
+        scroll3d: {
+            title: '3D Scroll-Driven Landing Page',
+            desc: 'A visual-rich product landing page modeled after Apple marketing websites. It translates standard window scroll positions into interactive, scrubbable Three.js WebGL scenes.',
+            challenges: [
+                'Driving model position, rotation, and camera parameters precisely in lockstep with the viewport scroll ratio.',
+                'Creating a clean layout fallback system for low-power, mobile, or non-WebGL devices.',
+                'Optimizing GPU draw calls, code-splitting heavy bundles, and pausing rendering loops when off-screen.'
+            ],
+            contributions: 'Designed the GSAP timeline and scroll scrubbing triggers, integrated Lenis smooth scrolling, and optimized 3D asset loader meshes for WebGL rendering speed.',
+            category: '3D / WebGL Landing Page',
+            tags: ['React', 'Three.js', 'GSAP ScrollTrigger', 'Lenis Scroll', 'WebGL'],
+            github: 'https://github.com/mahnoor28-code/khizex-scroll-landing',
+            demo: 'https://khizex-scroll-landing.vercel.app/'
+        },
+        'offline-store': {
+            title: 'Offline-First Shoe Store',
+            desc: 'An e-commerce front-end application built for resilient usability under weak, slow, or completely absent network connectivity. It guarantees a functional transaction state offline.',
+            challenges: [
+                'Structuring custom Service Workers to cache complex product assets and queue failed checkout requests.',
+                'Co-ordinating background Web Workers to run heavy state computations, saving thread cycles.',
+                'Integrating IndexedDB as a local storage layer with a synchronization queue manager.'
+            ],
+            contributions: 'Programmed the Service Worker lifecycle caches, coded the IndexedDB transactional database queries, and implemented the finite state machine that coordinates cart actions.',
+            category: 'Offline-First Web Application',
+            tags: ['React', 'Three.js', 'Service Workers', 'IndexedDB', 'Web Workers'],
+            github: 'https://github.com/mahnoor28-code/khizex-shoe-store',
+            demo: 'https://khizex-shoe-store-mauve.vercel.app/'
+        }
+    };
+    
+    const projectModal = document.getElementById('project-detail-modal');
+    const modalTitle = document.getElementById('project-modal-title');
+    const modalDesc = document.getElementById('modal-project-desc');
+    const modalChallenges = document.getElementById('modal-challenges-list');
+    const modalContributions = document.getElementById('modal-contributions');
+    const modalCategory = document.getElementById('modal-category');
+    const modalTechTags = document.getElementById('modal-tech-tags');
+    const modalGithub = document.getElementById('modal-github');
+    const modalDemo = document.getElementById('modal-demo');
+    const projectDetailBtns = document.querySelectorAll('.btn-project-detail');
+    let lastFocusedProjectBtn = null;
+    
+    projectDetailBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const projectId = btn.getAttribute('data-project');
+            const data = projectsData[projectId];
+            if (!data) return;
+            
+            lastFocusedProjectBtn = btn;
+            modalTitle.textContent = data.title;
+            modalDesc.textContent = data.desc;
+            modalContributions.textContent = data.contributions;
+            modalCategory.textContent = data.category;
+            
+            // Render tags
+            modalTechTags.innerHTML = '';
+            data.tags.forEach(tag => {
+                const span = document.createElement('span');
+                span.textContent = tag;
+                modalTechTags.appendChild(span);
+            });
+            
+            // Render challenges
+            modalChallenges.innerHTML = '';
+            data.challenges.forEach(challenge => {
+                const li = document.createElement('li');
+                li.textContent = challenge;
+                modalChallenges.appendChild(li);
+            });
+            
+            // Render links
+            modalGithub.setAttribute('href', data.github);
+            modalDemo.setAttribute('href', data.demo);
+            
+            // Open modal
+            projectModal.classList.add('is-open');
+            projectModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            projectModal.querySelector('.project-modal-close').focus();
+        });
+    });
+    
+    function closeProjectModal() {
+        projectModal.classList.remove('is-open');
+        projectModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (lastFocusedProjectBtn) lastFocusedProjectBtn.focus();
+    }
+    
+    if (projectModal) {
+        projectModal.querySelectorAll('[data-project-close]').forEach(el => {
+            el.addEventListener('click', closeProjectModal);
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && projectModal.classList.contains('is-open')) {
+                closeProjectModal();
+            }
+        });
+    }
+
+    // -------------------------------------------------------------
+    // 14. Testimonials Carousel Slider logic
+    // -------------------------------------------------------------
+    const track = document.getElementById('testimonials-track');
+    const cards = document.querySelectorAll('.testimonial-card');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+    const indicatorsContainer = document.getElementById('carousel-indicators');
+    
+    if (track && cards.length > 0) {
+        let currentIndex = 0;
+        let autoplayTimer;
+        
+        // Create indicators
+        cards.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('indicator-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+                resetAutoplay();
+            });
+            indicatorsContainer.appendChild(dot);
+        });
+        
+        const indicators = document.querySelectorAll('.indicator-dot');
+        
+        const updateSlidePosition = () => {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Update indicators
+            indicators.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        };
+        
+        const goToSlide = (index) => {
+            currentIndex = (index + cards.length) % cards.length;
+            updateSlidePosition();
+        };
+        
+        const startAutoplay = () => {
+            autoplayTimer = setInterval(() => {
+                goToSlide(currentIndex + 1);
+            }, 5000);
+        };
+        
+        const resetAutoplay = () => {
+            clearInterval(autoplayTimer);
+            startAutoplay();
+        };
+        
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                goToSlide(currentIndex - 1);
+                resetAutoplay();
+            });
+        }
+        
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                goToSlide(currentIndex + 1);
+                resetAutoplay();
+            });
+        }
+        
+        // Pause on Hover
+        track.addEventListener('mouseenter', () => clearInterval(autoplayTimer));
+        track.addEventListener('mouseleave', startAutoplay);
+        
+        // Touch Support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        track.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        track.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        const handleSwipe = () => {
+            if (touchStartX - touchEndX > 50) {
+                // Swipe Left -> Next
+                goToSlide(currentIndex + 1);
+                resetAutoplay();
+            } else if (touchEndX - touchStartX > 50) {
+                // Swipe Right -> Prev
+                goToSlide(currentIndex - 1);
+                resetAutoplay();
+            }
+        };
+        
+        // Start
+        startAutoplay();
+    }
 });
