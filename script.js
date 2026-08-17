@@ -166,7 +166,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------------------------------------
     const contactForm = document.getElementById('contact-form');
     const formMessage = document.getElementById('form-message');
-    
+
+    // ---- EmailJS config ----
+    // 1. Create a free account at https://www.emailjs.com
+    // 2. Add an Email Service (e.g. Gmail) -> copy its Service ID below.
+    // 3. Create an Email Template with {{from_name}}, {{from_email}}, {{subject}}, {{message}} variables -> copy its Template ID below.
+    // 4. Account > General > copy your Public Key below.
+    const EMAILJS_SERVICE_ID = 'service_ibbjotb';
+    const EMAILJS_TEMPLATE_ID = 'fr33v8j';
+    const EMAILJS_PUBLIC_KEY = 'R0kjMRKtYDU6kZ9xL';
+
+    if (window.emailjs && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+    }
+
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
@@ -180,34 +193,180 @@ document.addEventListener('DOMContentLoaded', () => {
             showFormFeedback('Please fill in all details.', 'error');
             return;
         }
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(emailVal)) {
+            showFormFeedback('Please enter a valid email address.', 'error');
+            return;
+        }
         
         // Disable button while processing
         submitBtn.disabled = true;
         submitBtn.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
-        
-        // Simulate API call
-        setTimeout(() => {
-            // Success Feedback
-            showFormFeedback(`Thank you, ${nameVal}! Your message has been sent successfully.`, 'success');
-            
-            // Reset form
+
+        const isConfigured = EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY'
+            && EMAILJS_SERVICE_ID !== 'YOUR_SERVICE_ID'
+            && EMAILJS_TEMPLATE_ID !== 'YOUR_TEMPLATE_ID';
+
+        if (window.emailjs && isConfigured) {
+            // Real send via EmailJS
+            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+                from_name: nameVal,
+                from_email: emailVal,
+                subject: subjectVal,
+                message: messageVal
+            }).then(() => {
+                showFormFeedback(`Thank you, ${nameVal}! Your message has been sent successfully.`, 'success');
+                contactForm.reset();
+            }).catch(() => {
+                showFormFeedback('Something went wrong sending your message. Please try emailing me directly.', 'error');
+            }).finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane"></i>';
+                setTimeout(() => { formMessage.style.opacity = '0'; }, 5000);
+            });
+        } else {
+            // EmailJS not configured yet — fall back to opening the visitor's mail client
+            const mailtoLink = `mailto:Sohailmahnoor52@gmail.com?subject=${encodeURIComponent(subjectVal)}&body=${encodeURIComponent(`From: ${nameVal} (${emailVal})\n\n${messageVal}`)}`;
+            window.location.href = mailtoLink;
+
+            showFormFeedback(`Opening your mail app to send this to me, ${nameVal}!`, 'success');
             contactForm.reset();
-            
-            // Reset Button
             submitBtn.disabled = false;
             submitBtn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane"></i>';
-            
-            // Fade out message after 5 seconds
-            setTimeout(() => {
-                formMessage.style.opacity = '0';
-            }, 5000);
-            
-        }, 1500);
+            setTimeout(() => { formMessage.style.opacity = '0'; }, 5000);
+        }
     });
     
     function showFormFeedback(message, type) {
         formMessage.textContent = message;
         formMessage.className = `form-message ${type}`;
         formMessage.style.opacity = '1';
+    }
+
+    // -------------------------------------------------------------
+    // 7. Certificate Preview Modal
+    // -------------------------------------------------------------
+    const certModal = document.getElementById('cert-modal');
+    const certModalBody = document.getElementById('cert-modal-body');
+    const certModalTitle = document.getElementById('cert-modal-title');
+    const certModalDownload = document.getElementById('cert-modal-download');
+    const certCards = document.querySelectorAll('.cert-clickable');
+    let lastFocusedCertCard = null;
+
+    certCards.forEach(card => {
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+
+        const openThisCert = () => openCertModal(card);
+
+        card.addEventListener('click', openThisCert);
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openThisCert();
+            }
+        });
+    });
+
+    function openCertModal(card) {
+        const src = card.getAttribute('data-cert-src');
+        const type = card.getAttribute('data-cert-type');
+        const title = card.getAttribute('data-cert-title') || 'Certificate';
+
+        lastFocusedCertCard = card;
+        certModalTitle.textContent = title;
+        certModalDownload.setAttribute('href', src);
+        certModalDownload.setAttribute('download', '');
+
+        certModalBody.innerHTML = '';
+        if (type === 'pdf') {
+            const iframe = document.createElement('iframe');
+            iframe.src = src;
+            iframe.title = title;
+            certModalBody.appendChild(iframe);
+        } else {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = title;
+            certModalBody.appendChild(img);
+        }
+
+        certModal.classList.add('is-open');
+        certModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        certModal.querySelector('.cert-modal-close').focus();
+    }
+
+    function closeCertModal() {
+        certModal.classList.remove('is-open');
+        certModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        certModalBody.innerHTML = '';
+        if (lastFocusedCertCard) lastFocusedCertCard.focus();
+    }
+
+    certModal.querySelectorAll('[data-cert-close]').forEach(el => {
+        el.addEventListener('click', closeCertModal);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && certModal.classList.contains('is-open')) {
+            closeCertModal();
+        }
+    });
+
+    // -------------------------------------------------------------
+    // 8. Scroll Progress Bar + Floating Back-to-Top Button
+    // -------------------------------------------------------------
+    const scrollProgress = document.getElementById('scroll-progress');
+    const backToTopBtn = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        scrollProgress.style.width = progress + '%';
+
+        if (scrollTop > 500) {
+            backToTopBtn.classList.add('is-visible');
+        } else {
+            backToTopBtn.classList.remove('is-visible');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // -------------------------------------------------------------
+    // 9. Copy Email to Clipboard + Toast
+    // -------------------------------------------------------------
+    const copyEmailBtn = document.getElementById('copy-email-btn');
+    const toast = document.getElementById('toast');
+    let toastTimeout;
+
+    if (copyEmailBtn) {
+        copyEmailBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const email = 'Sohailmahnoor52@gmail.com';
+            try {
+                await navigator.clipboard.writeText(email);
+                showToast('Email copied to clipboard!');
+            } catch (err) {
+                // Fallback if clipboard API is blocked
+                window.location.href = `mailto:${email}`;
+            }
+        });
+    }
+
+    function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add('is-visible');
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+            toast.classList.remove('is-visible');
+        }, 2200);
     }
 });
