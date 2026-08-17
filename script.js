@@ -211,10 +211,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.emailjs && isConfigured) {
             // Real send via EmailJS
             emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-                from_name: nameVal,
-                from_email: emailVal,
-                subject: subjectVal,
-                message: messageVal
+                name: nameVal,
+                email: emailVal,
+                title: subjectVal,
+                message: messageVal,
+                time: new Date().toLocaleString()
             }).then(() => {
                 showFormFeedback(`Thank you, ${nameVal}! Your message has been sent successfully.`, 'success');
                 contactForm.reset();
