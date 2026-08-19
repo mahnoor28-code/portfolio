@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. Create an Email Template with {{from_name}}, {{from_email}}, {{subject}}, {{message}} variables -> copy its Template ID below.
     // 4. Account > General > copy your Public Key below.
     const EMAILJS_SERVICE_ID = 'service_ibbjotb';
-    const EMAILJS_TEMPLATE_ID = 'fr33v8j';
+    const EMAILJS_TEMPLATE_ID = 'template_unsrnfg';
     const EMAILJS_PUBLIC_KEY = 'R0kjMRKtYDU6kZ9xL';
 
     if (window.emailjs && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
