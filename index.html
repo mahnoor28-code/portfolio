@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- EmailJS (used by the contact form to send real emails) -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -20,11 +22,11 @@
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
         <div class="grid-overlay"></div>
-        <div class="mouse-glow" id="mouse-glow"></div>
     </div>
 
     <!-- Navigation Header -->
     <header class="navbar" id="navbar">
+        <div class="scroll-progress-bar" id="scroll-progress"></div>
         <div class="nav-container">
             <a href="#home" class="logo">
                 <span class="logo-accent">&lt;</span>Mahnoor<span class="logo-accent">.dev /&gt;</span>
@@ -37,12 +39,10 @@
                 <a href="#experience" class="nav-link">Experience</a>
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="#certificates" class="nav-link">Certificates</a>
-                <a href="#testimonials" class="nav-link">Testimonials</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </nav>
 
             <div class="nav-actions">
-                <a href="assets/resume/resume.pdf" class="btn btn-secondary btn-resume-nav" target="_blank" style="padding: 8px 16px; font-size: 0.85rem; border-radius: var(--radius-sm); margin-right: 10px; display: inline-flex; align-items: center; gap: 6px;">Resume <i class="fa-solid fa-download" style="font-size: 0.75rem;"></i></a>
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light theme">
                     <i class="fa-solid fa-moon"></i>
                 </button>
@@ -69,8 +69,8 @@
                     </p>
                     <div class="hero-ctas">
                         <a href="#projects" class="btn btn-primary">View Projects <i class="fa-solid fa-arrow-right"></i></a>
-                        <a href="assets/resume/resume.pdf" class="btn btn-secondary" target="_blank"><i class="fa-solid fa-download"></i> Download CV</a>
-                        <a href="#about" class="btn btn-tertiary">View Bio</a>
+                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                        <a href="#about" class="btn btn-tertiary"><i class="fa-solid fa-download"></i> View Quick Bio</a>
                     </div>
                 </div>
                 <div class="hero-graphic">
@@ -149,38 +149,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- About Stats Grid -->
-                <div class="about-stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                        <div class="stat-num-container">
-                            <span class="stat-num" data-target="3.85">0.00</span>
-                        </div>
-                        <div class="stat-label">Academic CGPA</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon"><i class="fa-solid fa-code-branch"></i></div>
-                        <div class="stat-num-container">
-                            <span class="stat-num" data-target="10">0</span><span class="stat-suffix">+</span>
-                        </div>
-                        <div class="stat-label">Projects Completed</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon"><i class="fa-solid fa-briefcase"></i></div>
-                        <div class="stat-num-container">
-                            <span class="stat-num" data-target="3">0</span>
-                        </div>
-                        <div class="stat-label">Industry Internships</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon"><i class="fa-solid fa-laptop-code"></i></div>
-                        <div class="stat-num-container">
-                            <span class="stat-num" data-target="150">0</span><span class="stat-suffix">+</span>
-                        </div>
-                        <div class="stat-label">DSA Problems Solved</div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -193,17 +161,14 @@
                     <div class="header-line"></div>
                 </div>
 
-                <div class="skills-tabs-container">
-                    <button class="skills-tab-btn active" data-tab="mobile">Mobile Apps</button>
-                    <button class="skills-tab-btn" data-tab="languages">Languages & DBs</button>
-                    <button class="skills-tab-btn" data-tab="web">Web & Systems</button>
-                    <button class="skills-tab-btn" data-tab="tools">Tools & Tech</button>
-                </div>
-
-                <div class="skills-tabs-content">
-                    <!-- Tab 1: Mobile App Development -->
-                    <div class="skills-pane active" id="tab-mobile">
-                        <div class="skills-grid-simple">
+                <div class="skills-grid">
+                    <!-- Category 1: Mobile App Development -->
+                    <div class="skills-category-card">
+                        <div class="cat-header">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                            <h3>Mobile App Development</h3>
+                        </div>
+                        <div class="skills-list">
                             <div class="skill-item">
                                 <div class="skill-info">
                                     <span>Flutter</span>
@@ -211,15 +176,6 @@
                                 </div>
                                 <div class="skill-bar-bg">
                                     <div class="skill-bar-fill" style="width: 90%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Dart</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: 85%;"></div>
                                 </div>
                             </div>
                             <div class="skill-item">
@@ -240,21 +196,16 @@
                                     <div class="skill-bar-fill" style="width: 80%;"></div>
                                 </div>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>State Management (Provider / Bloc)</span>
-                                    <span>78%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: 78%;"></div>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
-                    <!-- Tab 2: Programming & Databases -->
-                    <div class="skills-pane" id="tab-languages">
-                        <div class="skills-grid-simple">
+                    <!-- Category 2: Programming & Databases -->
+                    <div class="skills-category-card">
+                        <div class="cat-header">
+                            <i class="fa-solid fa-code"></i>
+                            <h3>Programming & Databases</h3>
+                        </div>
+                        <div class="skills-list">
                             <div class="skill-item">
                                 <div class="skill-info">
                                     <span>C++ (OOP, DS, File I/O)</span>
@@ -266,7 +217,7 @@
                             </div>
                             <div class="skill-item">
                                 <div class="skill-info">
-                                    <span>SQL & MySQL</span>
+                                    <span>SQL</span>
                                     <span>85%</span>
                                 </div>
                                 <div class="skill-bar-bg">
@@ -275,80 +226,39 @@
                             </div>
                             <div class="skill-item">
                                 <div class="skill-info">
-                                    <span>PostgreSQL</span>
-                                    <span>78%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: 78%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Firebase Firestore & IndexedDB</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: 85%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Python (AI Searching & Data)</span>
-                                    <span>70%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: 70%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tab 3: Web & Systems -->
-                    <div class="skills-pane" id="tab-web">
-                        <div class="skills-grid-simple">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>HTML5 & CSS3 & Tailwind CSS</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: 85%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>JavaScript (ES6+) & TypeScript</span>
+                                    <span>MySQL (ER Models, Normalization)</span>
                                     <span>82%</span>
                                 </div>
                                 <div class="skill-bar-bg">
                                     <div class="skill-bar-fill" style="width: 82%;"></div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 3: Web & Systems -->
+                    <div class="skills-category-card">
+                        <div class="cat-header">
+                            <i class="fa-solid fa-globe"></i>
+                            <h3>Web & Systems</h3>
+                        </div>
+                        <div class="skills-list">
                             <div class="skill-item">
                                 <div class="skill-info">
-                                    <span>React.js & Strict TypeScript</span>
-                                    <span>78%</span>
+                                    <span>HTML5 & CSS3</span>
+                                    <span>85%</span>
                                 </div>
                                 <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: 78%;"></div>
+                                    <div class="skill-bar-fill" style="width: 85%;"></div>
                                 </div>
                             </div>
                             <div class="skill-item">
                                 <div class="skill-info">
-                                    <span>Node.js & NestJS (Backend)</span>
-                                    <span>70%</span>
+                                    <span>JavaScript (Basic ES6)</span>
+                                    <span>65%</span>
                                 </div>
                                 <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: 70%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>REST APIs</span>
-                                    <span>75%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: 75%;"></div>
+                                    <div class="skill-bar-fill" style="width: 65%;"></div>
                                 </div>
                             </div>
                             <div class="skill-item">
@@ -361,72 +271,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Tab 4: Tools & Tech -->
-                    <div class="skills-pane" id="tab-tools">
-                        <div class="skills-grid-simple">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Git & GitHub</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: 85%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>VS Code / Cursor</span>
-                                    <span>90%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: 90%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Figma & Adobe Photoshop</span>
-                                    <span>80%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: 80%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Vercel / GitHub Pages Deploys</span>
-                                    <span>82%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: 82%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Postman (API Testing)</span>
-                                    <span>75%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: 75%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Relevant Academic Courses -->
-                <div class="academic-courses-container">
-                    <h3 class="courses-title">Relevant Academic Courses</h3>
-                    <div class="course-badges-grid">
-                        <span class="course-badge"><i class="fa-solid fa-book-open"></i> Data Structures & Algorithms</span>
-                        <span class="course-badge"><i class="fa-solid fa-database"></i> Database Systems</span>
-                        <span class="course-badge"><i class="fa-solid fa-mobile-screen"></i> Mobile App Development</span>
-                        <span class="course-badge"><i class="fa-solid fa-globe"></i> Web Engineering</span>
-                        <span class="course-badge"><i class="fa-solid fa-microchip"></i> Artificial Intelligence</span>
-                        <span class="course-badge"><i class="fa-solid fa-shield-check"></i> Software Quality Engineering</span>
-                        <span class="course-badge"><i class="fa-solid fa-network-wired"></i> Operating Systems</span>
-                        <span class="course-badge"><i class="fa-solid fa-sitemap"></i> Business Process Engineering</span>
                     </div>
                 </div>
             </div>
@@ -556,7 +400,6 @@
                                 <li>Sync and async filtering, plus multi-select with chip rendering.</li>
                                 <li>Event delegation for performance on large, dynamic option lists.</li>
                             </ul>
-                            <button class="btn btn-project-detail" data-project="headlesshydra">View Details <i class="fa-solid fa-chevron-right"></i></button>
                         </div>
                         <div class="project-card-footer">
                             <div class="project-tags">
@@ -587,7 +430,6 @@
                                 <li>Read receipts (sent → delivered → read) over a realistic mock transport.</li>
                                 <li>Zero <code>any</code> in the codebase; aria-live regions for screen readers.</li>
                             </ul>
-                            <button class="btn btn-project-detail" data-project="ping">View Details <i class="fa-solid fa-chevron-right"></i></button>
                         </div>
                         <div class="project-card-footer">
                             <div class="project-tags">
@@ -618,7 +460,6 @@
                                 <li>Auto-fallback to a static image for no-WebGL, reduced-motion, or low-memory devices.</li>
                                 <li>3D scene code-split and lazy-mounted; render loop pauses when off-screen.</li>
                             </ul>
-                            <button class="btn btn-project-detail" data-project="scroll3d">View Details <i class="fa-solid fa-chevron-right"></i></button>
                         </div>
                         <div class="project-card-footer">
                             <div class="project-tags">
@@ -648,7 +489,6 @@
                                 <li>Cart logic lives entirely in a Web Worker, persisted to raw IndexedDB.</li>
                                 <li>A finite state machine physically blocks checkout while a sync is pending.</li>
                             </ul>
-                            <button class="btn btn-project-detail" data-project="offline-store">View Details <i class="fa-solid fa-chevron-right"></i></button>
                         </div>
                         <div class="project-card-footer">
                             <div class="project-tags">
@@ -692,6 +532,74 @@
                                 <span>Flutter</span>
                                 <span>Firebase</span>
                                 <span>Dart</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Protego -->
+                    <div class="project-card">
+                        <div class="project-card-header">
+                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/mahnoor28-code/Protego_Website" target="_blank" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-title">Protego — Safety Ring Store</h3>
+                            <p class="project-desc">
+                                A full-stack e-commerce website built for purchasing personal safety rings, with a React/Next.js storefront backed by a Node.js/Express API.
+                            </p>
+                        </div>
+                        <div class="project-card-footer">
+                            <div class="project-tags">
+                                <span>React / Next.js</span>
+                                <span>Node.js</span>
+                                <span>Express</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hotel Management System App -->
+                    <div class="project-card">
+                        <div class="project-card-header">
+                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/mahnoor28-code/hotel_management_system_app" target="_blank" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-title">Hotel Management System App</h3>
+                            <p class="project-desc">
+                                A Flutter mobile app for managing hotel bookings and daily front-desk operations from a single, cross-platform interface.
+                            </p>
+                        </div>
+                        <div class="project-card-footer">
+                            <div class="project-tags">
+                                <span>Flutter</span>
+                                <span>Dart</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bubble Sort Visualizer -->
+                    <div class="project-card">
+                        <div class="project-card-header">
+                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/mahnoor28-code/Bubble-Sort" target="_blank" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-title">Bubble Sort Visualizer</h3>
+                            <p class="project-desc">
+                                An interactive Bubble Sort game that incorporates K-Means Clustering to visualize how the sorting algorithm groups and orders data over time.
+                            </p>
+                        </div>
+                        <div class="project-card-footer">
+                            <div class="project-tags">
+                                <span>JavaScript</span>
+                                <span>Algorithms</span>
+                                <span>Data Viz</span>
                             </div>
                         </div>
                     </div>
@@ -804,18 +712,43 @@
                 </div>
 
                 <div class="certificates-grid">
-                    <!-- Cert 1: Khizex -->
-                    <div class="cert-card cert-clickable" data-cert-src="assets/certificates/khizex-certificate.jpg" data-cert-type="image" data-cert-title="Frontend Development Internship — Khizex Software Solutions">
+                    <!-- Cert 1: Khizex Certificate -->
+                    <div class="cert-card cert-clickable" data-cert-src="assets/certificates/khizex-certificate.jpg" data-cert-preview="assets/certificates/khizex-certificate.jpg" data-cert-type="image" data-cert-title="Certificate of Completion — Khizex Software Solutions">
                         <div class="cert-icon"><i class="fa-solid fa-award"></i></div>
                         <div class="cert-content">
-                            <h3>Frontend Development Internship</h3>
+                            <h3>Certificate of Completion</h3>
                             <p class="cert-issuer">Khizex Software Solutions</p>
                             <p class="cert-desc">Completed a 6-week production-engineering internship — Excellent (A) grade, 85% aggregate score across git discipline, code quality, technical defense, and public showcase.</p>
                         </div>
                         <span class="cert-view-tag"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                        <div class="cert-hover-preview"><img src="assets/certificates/khizex-certificate.jpg" alt="" loading="lazy"></div>
                     </div>
 
-                    <!-- Cert 2: CodeAlpha -->
+                    <!-- Cert 2: Khizex Experience Certificate -->
+                    <div class="cert-card cert-clickable" data-cert-src="assets/certificates/khizex-experience-certificate.jpg" data-cert-preview="assets/certificates/khizex-experience-certificate.jpg" data-cert-type="image" data-cert-title="Experience Certificate — Khizex Software Solutions">
+                        <div class="cert-icon"><i class="fa-solid fa-file-shield"></i></div>
+                        <div class="cert-content">
+                            <h3>Experience Certificate</h3>
+                            <p class="cert-issuer">Khizex Software Solutions</p>
+                            <p class="cert-desc">Official record of the 6-week industrial internship (05 July – 16 August 2026) in Frontend Development, citing exemplary technical acumen and problem-solving skills.</p>
+                        </div>
+                        <span class="cert-view-tag"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                        <div class="cert-hover-preview"><img src="assets/certificates/khizex-experience-certificate.jpg" alt="" loading="lazy"></div>
+                    </div>
+
+                    <!-- Cert 3: Khizex Letter of Recommendation -->
+                    <div class="cert-card cert-clickable" data-cert-src="assets/certificates/khizex-lor.jpg" data-cert-preview="assets/certificates/khizex-lor.jpg" data-cert-type="image" data-cert-title="Letter of Recommendation — Khizex Software Solutions">
+                        <div class="cert-icon"><i class="fa-solid fa-signature"></i></div>
+                        <div class="cert-content">
+                            <h3>Letter of Recommendation</h3>
+                            <p class="cert-issuer">Khizex Software Solutions</p>
+                            <p class="cert-desc">Highest endorsement from Umer Farooq, Co-Founder & CEO, citing exceptional technical proficiency, ownership of clean architecture, and strong cross-functional communication.</p>
+                        </div>
+                        <span class="cert-view-tag"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                        <div class="cert-hover-preview"><img src="assets/certificates/khizex-lor.jpg" alt="" loading="lazy"></div>
+                    </div>
+
+                    <!-- Cert 4: CodeAlpha -->
                     <div class="cert-card cert-clickable" data-cert-src="assets/certificates/codealpha-certificate.pdf" data-cert-type="pdf" data-cert-title="Frontend Development Internship — CodeAlpha">
                         <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
                         <div class="cert-content">
@@ -826,8 +759,8 @@
                         <span class="cert-view-tag"><i class="fa-solid fa-eye"></i> View Certificate</span>
                     </div>
 
-                    <!-- Cert 3: SoloLearn SQL -->
-                    <div class="cert-card cert-clickable" data-cert-src="assets/certificates/sololearn-sql.jpg" data-cert-type="image" data-cert-title="Introduction to SQL — SoloLearn">
+                    <!-- Cert 5: SoloLearn SQL -->
+                    <div class="cert-card cert-clickable" data-cert-src="assets/certificates/sololearn-sql.jpg" data-cert-preview="assets/certificates/sololearn-sql.jpg" data-cert-type="image" data-cert-title="Introduction to SQL — SoloLearn">
                         <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
                         <div class="cert-content">
                             <h3>Introduction to SQL</h3>
@@ -835,9 +768,10 @@
                             <p class="cert-desc">Validated knowledge on relational databases, query structure, indexing, aggregation, and joining techniques.</p>
                         </div>
                         <span class="cert-view-tag"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                        <div class="cert-hover-preview"><img src="assets/certificates/sololearn-sql.jpg" alt="" loading="lazy"></div>
                     </div>
-                    <!-- Cert 4: SoloLearn HTML -->
-                    <div class="cert-card cert-clickable" data-cert-src="assets/certificates/sololearn-html.jpg" data-cert-type="image" data-cert-title="Introduction to HTML — SoloLearn">
+                    <!-- Cert 6: SoloLearn HTML -->
+                    <div class="cert-card cert-clickable" data-cert-src="assets/certificates/sololearn-html.jpg" data-cert-preview="assets/certificates/sololearn-html.jpg" data-cert-type="image" data-cert-title="Introduction to HTML — SoloLearn">
                         <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
                         <div class="cert-content">
                             <h3>Introduction to HTML</h3>
@@ -845,6 +779,7 @@
                             <p class="cert-desc">Covered semantic tags, structure creation, embedding media, and document structure essentials.</p>
                         </div>
                         <span class="cert-view-tag"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                        <div class="cert-hover-preview"><img src="assets/certificates/sololearn-html.jpg" alt="" loading="lazy"></div>
                     </div>
                     <!-- Cert 5: Volunteer -->
                     <div class="cert-card">
@@ -876,116 +811,6 @@
             </div>
         </div>
 
-        <!-- Project Details Modal -->
-        <div id="project-detail-modal" class="project-modal" aria-hidden="true">
-            <div class="project-modal-backdrop" data-project-close></div>
-            <div class="project-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
-                <div class="project-modal-header">
-                    <h3 id="project-modal-title">Project Title</h3>
-                    <div class="project-modal-actions">
-                        <button class="project-modal-close" data-project-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
-                    </div>
-                </div>
-                <div class="project-modal-body">
-                    <div class="project-modal-grid">
-                        <div class="project-modal-info">
-                            <p class="modal-project-desc" id="modal-project-desc">Project description goes here...</p>
-                            <h4 class="modal-section-title">Key Engineering Challenges Solved</h4>
-                            <ul class="modal-challenges-list" id="modal-challenges-list">
-                                <!-- Dynamic items -->
-                            </ul>
-                            <h4 class="modal-section-title">Key Contributions</h4>
-                            <p class="modal-contributions" id="modal-contributions">Contributions...</p>
-                        </div>
-                        <div class="project-modal-meta">
-                            <div class="meta-item">
-                                <h5>Category</h5>
-                                <span id="modal-category">Mobile Development</span>
-                            </div>
-                            <div class="meta-item">
-                                <h5>Technologies Used</h5>
-                                <div class="project-tags" id="modal-tech-tags">
-                                    <!-- Tags -->
-                                </div>
-                            </div>
-                            <div class="meta-links">
-                                <a id="modal-github" href="#" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-github"></i> Repository</a>
-                                <a id="modal-demo" href="#" target="_blank" class="btn btn-primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="testimonials-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="subtitle">05. Recommendations</span>
-                    <h2 class="title">What Mentors Say</h2>
-                    <div class="header-line"></div>
-                </div>
-                
-                <div class="testimonials-carousel">
-                    <div class="testimonials-track-container">
-                        <div class="testimonials-track" id="testimonials-track">
-                            <!-- Testimonial 1 -->
-                            <div class="testimonial-card">
-                                <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
-                                <p class="testimonial-text">
-                                    "Mahnoor demonstrated exceptional engineering capabilities during her frontend internship. Her ability to design headless components like the useCombobox Hook and code-splitting 3D landing pages proved both her depth of technical knowledge and attention to detail. She writes highly maintainable, type-safe code."
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar"><i class="fa-solid fa-user-tie"></i></div>
-                                    <div class="author-info">
-                                        <strong>Engineering Lead</strong>
-                                        <span>Khizex Software Solutions</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Testimonial 2 -->
-                            <div class="testimonial-card">
-                                <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
-                                <p class="testimonial-text">
-                                    "During the Virtual Internship track, Mahnoor stood out for her structured approach to problem solving and robust Git practices. She successfully implemented real-time web applications under tight weekly deadlines, scoring in the highest bracket of her cohort."
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar"><i class="fa-solid fa-user-gear"></i></div>
-                                    <div class="author-info">
-                                        <strong>Internship Supervisor</strong>
-                                        <span>CodeAlpha Development Team</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Testimonial 3 -->
-                            <div class="testimonial-card">
-                                <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
-                                <p class="testimonial-text">
-                                    "Mahnoor consistently shows an outstanding grasp of system architectures and algorithms. Her databases models normalized up to BCNF and C++ custom scheduling simulators showed advanced analytical skills and a dedication to software engineering principles."
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar"><i class="fa-solid fa-user-graduate"></i></div>
-                                    <div class="author-info">
-                                        <strong>Department Head & Faculty Advisor</strong>
-                                        <span>Superior University, Lahore</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="carousel-nav">
-                        <button class="carousel-btn prev" id="carousel-prev" aria-label="Previous recommendation"><i class="fa-solid fa-chevron-left"></i></button>
-                        <div class="carousel-indicators" id="carousel-indicators"></div>
-                        <button class="carousel-btn next" id="carousel-next" aria-label="Next recommendation"><i class="fa-solid fa-chevron-right"></i></button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Contact Section -->
         <section id="contact" class="contact-section">
             <div class="section-container">
@@ -1009,6 +834,7 @@
                                     <span>Email Me</span>
                                     <strong>Sohailmahnoor52@gmail.com</strong>
                                 </div>
+                                <button type="button" class="copy-email-btn" id="copy-email-btn" aria-label="Copy email address"><i class="fa-regular fa-copy"></i></button>
                             </a>
                             <a href="tel:+923201441227" class="contact-item">
                                 <div class="item-icon"><i class="fa-solid fa-mobile-screen"></i></div>
@@ -1063,6 +889,14 @@
             </div>
         </section>
     </main>
+
+    <!-- Floating Back-to-Top Button -->
+    <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
     <!-- Footer -->
     <footer class="footer">
