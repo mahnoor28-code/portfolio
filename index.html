@@ -39,6 +39,7 @@
                 <a href="#experience" class="nav-link">Experience</a>
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="#certificates" class="nav-link">Certificates</a>
+                <a href="#testimonials" class="nav-link">Testimonials</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </nav>
 
@@ -309,10 +310,32 @@
                         </div>
                     </div>
 
+                    <!-- Experience Item: Progree -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2026.08 - 2026.09</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title-bar">
+                                <h3>Full Stack Development Intern</h3>
+                                <span class="company">Progree <span class="badge-rem">Remote</span></span>
+                            </div>
+                            <p class="location"><i class="fa-solid fa-location-dot"></i> Lahore, Punjab, Pakistan (Remote)</p>
+                            <ul class="experience-details">
+                                <li>Completed a one-month virtual Full Stack Development internship (20 August – 20 September 2026).</li>
+                                <li>Recognised in the Letter of Recommendation for strong analytical skills, quickly acquiring new skills, and adapting to emerging technologies.</li>
+                                <li>Collaborated with fellow team members and was commended for willingness to assist others.</li>
+                            </ul>
+                            <div class="experience-tech-tags">
+                                <span>Full Stack Development</span>
+                                <span>Remote Collaboration</span>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Experience Item 2: Khizex -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
-                        <div class="timeline-date">2026.07 - Present</div>
+                        <div class="timeline-date">2026.07 - 2026.08</div>
                         <div class="timeline-content">
                             <div class="timeline-title-bar">
                                 <h3>Frontend Development Intern</h3>
@@ -378,9 +401,94 @@
                     <button class="filter-btn" data-filter="realtime">Real-Time UI</button>
                     <button class="filter-btn" data-filter="3d">3D / WebGL</button>
                     <button class="filter-btn" data-filter="offline">Offline-First</button>
+                    <button class="filter-btn" data-filter="webapp">Web Apps</button>
                 </div>
 
                 <div class="projects-grid" id="projects-grid">
+                    <div class="project-card" data-category="webapp">
+                        <div class="project-card-header">
+                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="https://night-ledger-todo.vercel.app/" target="_blank" class="project-demo-link" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-title">Night Ledger — To-Do App</h3>
+                            <p class="project-desc">
+                                A task manager with due dates, browser reminders, drag-and-drop reordering and keyword search, built for the Arch Technologies Web Development Internship.
+                            </p>
+                            <ul class="project-features">
+                                <li>Add, edit, complete and delete tasks with localStorage persistence.</li>
+                                <li>Due-date highlighting and optional browser notifications.</li>
+                                <li>Drag-and-drop reorder with live search combined with All / Active / Done filters.</li>
+                            </ul>
+                        </div>
+                        <div class="project-card-footer">
+                            <div class="project-tags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                                <span>localStorage</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="webapp">
+                        <div class="project-card-header">
+                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="https://afterglow-music-player.vercel.app/" target="_blank" class="project-demo-link" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-title">Afterglow — Music Player</h3>
+                            <p class="project-desc">
+                                A custom-built music player with playlist, search and category filtering, streaming official artist uploads through the YouTube IFrame API behind a fully hand-made control UI.
+                            </p>
+                            <ul class="project-features">
+                                <li>Play, pause, skip, seek, volume, shuffle and repeat controls.</li>
+                                <li>Live search by title or artist, plus category filter chips.</li>
+                                <li>Progress and state kept in sync with the embedded player.</li>
+                            </ul>
+                        </div>
+                        <div class="project-card-footer">
+                            <div class="project-tags">
+                                <span>JavaScript</span>
+                                <span>YouTube IFrame API</span>
+                                <span>CSS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="webapp">
+                        <div class="project-card-header">
+                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/mahnoor28-code/campus-connect" target="_blank" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                                <a href="https://campus-connect-peach-seven.vercel.app/" target="_blank" class="project-demo-link" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <h3 class="project-title">Circle — Social Network</h3>
+                            <p class="project-desc">
+                                A client-side social platform with profiles, a live feed, likes, comments, friend requests, notifications and privacy settings. Real-time sync across browser tabs via the storage event.
+                            </p>
+                            <ul class="project-features">
+                                <li>Per-tab sessions so two tabs can be two different users at once.</li>
+                                <li>Private-profile setting that limits posts to friends.</li>
+                                <li>Live notification badge for likes, comments and friend requests.</li>
+                            </ul>
+                        </div>
+                        <div class="project-card-footer">
+                            <div class="project-tags">
+                                <span>JavaScript</span>
+                                <span>localStorage</span>
+                                <span>Storage Events</span>
+                                <span>Responsive UI</span>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Project 1: HeadlessHydra -->
                     <div class="project-card" data-category="library">
                         <div class="project-card-header">
@@ -748,6 +856,30 @@
                         <div class="cert-hover-preview"><img src="assets/certificates/khizex-lor.jpg" alt="" loading="lazy"></div>
                     </div>
 
+                    <!-- Cert: Progree Certificate -->
+                    <div class="cert-card cert-clickable" data-cert-src="assets/certificates/progree-certificate.jpg" data-cert-preview="assets/certificates/progree-certificate.jpg" data-cert-type="image" data-cert-title="Certificate of Completion — Progree">
+                        <div class="cert-icon"><i class="fa-solid fa-award"></i></div>
+                        <div class="cert-content">
+                            <h3>Full Stack Development Internship</h3>
+                            <p class="cert-issuer">Progree</p>
+                            <p class="cert-desc">Certificate of Completion for a one-month Full Stack Development internship, 20 August to 20 September 2026 (Verification ID: PG-419).</p>
+                        </div>
+                        <span class="cert-view-tag"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                        <div class="cert-hover-preview"><img src="assets/certificates/progree-certificate.jpg" alt="" loading="lazy"></div>
+                    </div>
+
+                    <!-- Cert: Progree LOR -->
+                    <div class="cert-card cert-clickable" data-cert-src="assets/certificates/progree-lor.jpg" data-cert-preview="assets/certificates/progree-lor.jpg" data-cert-type="image" data-cert-title="Letter of Recommendation — Progree">
+                        <div class="cert-icon"><i class="fa-solid fa-signature"></i></div>
+                        <div class="cert-content">
+                            <h3>Letter of Recommendation</h3>
+                            <p class="cert-issuer">Progree</p>
+                            <p class="cert-desc">Recommendation from Umar Mushtaq, Founder &amp; CEO, citing excellent analytical skills, quick adaptation to emerging technologies, and strong team collaboration.</p>
+                        </div>
+                        <span class="cert-view-tag"><i class="fa-solid fa-eye"></i> View Certificate</span>
+                        <div class="cert-hover-preview"><img src="assets/certificates/progree-lor.jpg" alt="" loading="lazy"></div>
+                    </div>
+
                     <!-- Cert 4: CodeAlpha -->
                     <div class="cert-card cert-clickable" data-cert-src="assets/certificates/codealpha-certificate.pdf" data-cert-type="pdf" data-cert-title="Frontend Development Internship — CodeAlpha">
                         <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
@@ -788,6 +920,44 @@
                             <h3>Volunteer Certificate (x2)</h3>
                             <p class="cert-issuer">Alkhidmat Foundation</p>
                             <p class="cert-desc">Awarded for active community participation, leadership, and providing volunteer support during public events.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="certificates-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="subtitle">06. Endorsements</span>
+                    <h2 class="title">Testimonials</h2>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="certificates-grid">
+                    <div class="cert-card testimonial-card">
+                        <div class="cert-icon"><i class="fa-solid fa-quote-left"></i></div>
+                        <div class="cert-content">
+                            <p class="cert-desc testimonial-quote">"Mahnoor consistently demonstrated a stellar work ethic, exceptional technical proficiency, and a genuine passion for software engineering excellence."</p>
+                            <h3 class="testimonial-name">Umer Farooq</h3>
+                            <p class="cert-issuer">Co-Founder &amp; CEO, Khizex Software Solutions</p>
+                        </div>
+                    </div>
+                    <div class="cert-card testimonial-card">
+                        <div class="cert-icon"><i class="fa-solid fa-quote-left"></i></div>
+                        <div class="cert-content">
+                            <p class="cert-desc testimonial-quote">"You're a technically exceptional engineer who understands modern browser APIs (Web Workers, Service Workers, and raw IndexedDB) and state architectures... represents a solid hire for a core frontend/architecture role."</p>
+                            <h3 class="testimonial-name">Khizex Supervisor</h3>
+                            <p class="cert-issuer">Task Evaluation — Offline-First Shoe Store Frontend</p>
+                        </div>
+                    </div>
+                    <div class="cert-card testimonial-card">
+                        <div class="cert-icon"><i class="fa-solid fa-quote-left"></i></div>
+                        <div class="cert-content">
+                            <p class="cert-desc testimonial-quote">"She has excellent analytical skills and quickly acquired new skills and adeptly adapted to emerging technologies, demonstrating a high level of productivity."</p>
+                            <h3 class="testimonial-name">Umar Mushtaq</h3>
+                            <p class="cert-issuer">Founder &amp; CEO, Progree</p>
                         </div>
                     </div>
                 </div>
