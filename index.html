@@ -1,1084 +1,348 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahnoor Sohail | Software Engineer & Flutter Developer Portfolio</title>
-    <meta name="description" content="Portfolio of Mahnoor Sohail, a Software Engineering student skilled in Flutter, Firebase, SQL, C++, and UI/UX design. Explore my ERP systems, database projects, and web development.">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- EmailJS (used by the contact form to send real emails) -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahnoor Sohail — Software Engineer &amp; Flutter Developer</title>
+<meta name="description" content="Portfolio of Mahnoor Sohail — Software Engineering student at Superior University, Lahore. Flutter, Firebase, React, SQL, C++ and web engineering projects.">
+<meta property="og:title" content="Mahnoor Sohail — Software Engineer">
+<meta property="og:description" content="Flutter, Firebase, React and full-stack projects. Internships at Khizex, Progree, Arch Technologies and CodeAlpha.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0d0615">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23ff8fb1'/%3E%3Ctext x='32' y='44' font-size='34' font-weight='800' text-anchor='middle' fill='%231a0b24' font-family='Arial'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- Background grid decoration -->
-    <div class="bg-decorations">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="grid-overlay"></div>
+<body class="is-loading">
+
+<div id="preloader" aria-hidden="true">
+  <div class="pre-name"><span style="animation-delay:.05s">M</span><span style="animation-delay:.12s">a</span><span style="animation-delay:.19s">h</span><span style="animation-delay:.26s">n</span><span style="animation-delay:.33s">o</span><span style="animation-delay:.4s">o</span><span style="animation-delay:.47s">r</span></div>
+  <div class="pre-bar"><i></i></div>
+  <div class="pre-count">00%</div>
+</div>
+
+<div class="cursor"></div><div class="cursor-dot"></div>
+<div id="scroll-progress"></div>
+<div class="glow glow-a"></div><div class="glow glow-b"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="#home" class="logo"><span class="logo-mark">M</span><span>mahnoor<b>.build</b></span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#home" class="active">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a>
+      <a href="#projects">Projects</a><a href="#certificates">Certificates</a><a href="#testimonials">Testimonials</a><a href="#contact">Contact</a>
+    </nav>
+    <a href="assets/resume/Mahnoor_Sohail_Resume_final.pdf" download class="btn btn-ghost nav-cta magnetic"><i class="fa-solid fa-download"></i> Resume</a>
+    <button class="burger" aria-label="Toggle menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="status glass"><i></i> Open to internships &amp; collaborations</div>
+      <p class="hello">Hi there, I'm</p>
+      <h1 class="hero-name"><span class="line" data-split>Mahnoor</span><span class="line grad" data-split>Sohail</span></h1>
+      <p class="hero-role">I'm a <span id="typed"></span><i class="caret"></i></p>
+      <p class="hero-desc">Software Engineering student at Superior University with a <strong>3.85/4.0</strong> CGPA. I build fast, polished mobile and web products with <strong>Flutter, Firebase, React &amp; SQL</strong> — and I care about the details you only notice when they're missing.</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary magnetic">See my work <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#contact" class="btn btn-ghost magnetic">Let's talk</a>
+      </div>
     </div>
+    <div class="hero-side">
+      <div class="stat glass reveal" style="--d:.5s"><b data-count="3.85" data-dec="2">0</b><span>CGPA /4.0</span></div>
+      <div class="stat glass reveal" style="--d:.6s"><b data-count="16" data-suffix="+">0</b><span>Projects built</span></div>
+      <div class="stat glass reveal" style="--d:.7s"><b data-count="4">0</b><span>Internships</span></div>
+      <div class="stat glass reveal" style="--d:.8s"><b data-count="9">0</b><span>Credentials</span></div>
+    </div>
+  </div>
+  <div class="scroll-hint"><span>SCROLL</span><i></i></div>
+</section>
 
-    <!-- Navigation Header -->
-    <header class="navbar" id="navbar">
-        <div class="scroll-progress-bar" id="scroll-progress"></div>
-        <div class="nav-container">
-            <a href="#home" class="logo">
-                <span class="logo-accent">&lt;</span>Mahnoor<span class="logo-accent">.dev /&gt;</span>
-            </a>
-            
-            <nav class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#certificates" class="nav-link">Certificates</a>
-                <a href="#testimonials" class="nav-link">Testimonials</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </nav>
+<div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Flutter</span><span>Firebase</span><span>React</span><span>TypeScript</span><span>Three.js</span><span>GSAP</span><span>C++</span><span>SQL</span><span>MySQL</span><span>JavaScript</span><span>Next.js</span><span>Node.js</span><span>IndexedDB</span><span>UI/UX</span><span>Flutter</span><span>Firebase</span><span>React</span><span>TypeScript</span><span>Three.js</span><span>GSAP</span><span>C++</span><span>SQL</span><span>MySQL</span><span>JavaScript</span><span>Next.js</span><span>Node.js</span><span>IndexedDB</span><span>UI/UX</span></div></div>
 
-            <div class="nav-actions">
-                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light theme">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
-                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
+<!-- ABOUT -->
+<section id="about"><div class="wrap">
+  <div class="eyebrow reveal">01 — About</div>
+  <h2 class="title reveal">Engineer by training, <em>maker by habit.</em></h2>
+  <div class="about-grid">
+    <div class="reveal">
+      <div class="photo-card tilt glass" data-tilt="10">
+        <img src="assets/images/profile.jpg" alt="Portrait of Mahnoor Sohail" loading="lazy">
+        <span class="float-chip">✦ 3.85 CGPA</span><span class="float-chip">Flutter + Firebase</span><span class="float-chip">Lahore, PK</span>
+      </div>
+    </div>
+    <div class="about-text">
+      <p class="reveal">I'm pursuing a <strong>Bachelor's degree in Software Engineering (2023–2027)</strong> at <strong>Superior University, Lahore</strong>, with an outstanding academic record and a growing stack of real-world projects behind it.</p>
+      <p class="reveal">My work centres on clean, optimised, user-centric solutions — mobile client architectures in Flutter, complex database design, system algorithms in C++, and lately offline-first, real-time and 3D web experiences.</p>
+      <p class="reveal">Away from the editor I love brainstorming UI/UX improvements, solving algorithmic puzzles and working in collaborative teams.</p>
+      <div class="edu glass reveal">
+        <div class="edu-ic"><i class="fa-solid fa-graduation-cap"></i></div>
+        <div><h3>Bachelor in Software Engineering</h3><p>Superior University, Lahore</p><small>2023 — 2027 · GPA 3.85 / 4.0</small></div>
+      </div>
+      <div class="soft">
+        <div class="glass reveal"><i class="fa-solid fa-brain"></i><h4>Critical Thinking</h4><p>Analysing bottlenecks and engineering optimal system logic.</p></div>
+        <div class="glass reveal" style="--d:.08s"><i class="fa-solid fa-users"></i><h4>Teamwork</h4><p>Aligning on goals, collaborating and presenting as a team.</p></div>
+        <div class="glass reveal" style="--d:.16s"><i class="fa-solid fa-lightbulb"></i><h4>Problem-Solving</h4><p>Applying data structures and algorithms to real bottlenecks.</p></div>
+        <div class="glass reveal" style="--d:.24s"><i class="fa-solid fa-comments"></i><h4>Communication</h4><p>Bridging system capabilities and user-friendly requirements.</p></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- SKILLS -->
+<section id="skills"><div class="wrap">
+  <div class="eyebrow reveal">02 — Expertise</div>
+  <h2 class="title reveal">The toolkit, <em>spinning.</em></h2>
+  <div class="skills-grid">
+    <div class="sphere-card glass reveal"><h3><i class="fa-solid fa-cube"></i> Tech sphere</h3><small>drag to rotate</small><canvas id="sphere" aria-label="Interactive sphere of technologies"></canvas></div>
+    
+        <div class="cat glass reveal" style="--d:0.05s"><h3><i class="fa-solid fa-mobile-screen-button"></i>Mobile App Development</h3><div class="meter"><div class="meter-top"><span>Flutter</span><span>90%</span></div><div class="meter-bar"><i data-w="90"></i></div></div><div class="meter"><div class="meter-top"><span>Firebase (Auth, Firestore, Cloud)</span><span>85%</span></div><div class="meter-bar"><i data-w="85"></i></div></div><div class="meter"><div class="meter-top"><span>Android Studio</span><span>80%</span></div><div class="meter-bar"><i data-w="80"></i></div></div></div>
+    
+        <div class="cat glass reveal" style="--d:0.12s"><h3><i class="fa-solid fa-database"></i>Programming &amp; Databases</h3><div class="meter"><div class="meter-top"><span>C++ (OOP, DS, File I/O)</span><span>88%</span></div><div class="meter-bar"><i data-w="88"></i></div></div><div class="meter"><div class="meter-top"><span>SQL</span><span>85%</span></div><div class="meter-bar"><i data-w="85"></i></div></div><div class="meter"><div class="meter-top"><span>MySQL (ER Models, Normalization)</span><span>82%</span></div><div class="meter-bar"><i data-w="82"></i></div></div></div>
+    
+        <div class="cat glass reveal" style="--d:0.19s"><h3><i class="fa-solid fa-globe"></i>Web &amp; Systems</h3><div class="meter"><div class="meter-top"><span>HTML5 &amp; CSS3</span><span>85%</span></div><div class="meter-bar"><i data-w="85"></i></div></div><div class="meter"><div class="meter-top"><span>JavaScript (ES6+)</span><span>65%</span></div><div class="meter-bar"><i data-w="65"></i></div></div><div class="meter"><div class="meter-top"><span>Web Engineering &amp; BPE Redesign</span><span>80%</span></div><div class="meter-bar"><i data-w="80"></i></div></div></div>
+  </div>
+</div></section>
+
+<!-- EXPERIENCE -->
+<section id="experience"><div class="wrap">
+  <div class="eyebrow reveal">03 — Career path</div>
+  <h2 class="title reveal">Where I've <em>shipped.</em></h2>
+  <div class="timeline"><div class="tl-line"></div>
+    
+        <div class="tl-item reveal"><div class="tl-card glass">
+          <div class="tl-date">2026.08 — 2026.09</div>
+          <div class="tl-head"><h3>Web Development Intern</h3><span class="tl-co">Arch Technologies<em>Remote</em></span></div>
+          <p class="tl-loc"><i class="fa-solid fa-location-dot"></i> Lahore, Punjab, Pakistan (Remote)</p>
+          <ul><li>Selected for a Web Development Internship and Training Program focused on hands-on, production-style frontend work.</li><li>Built and shipped real deliverables against sequential build tasks — a portfolio, a to-do app, a music player and a social network platform — with structured feedback after each submission.</li><li>Applied concepts learned through orientation directly to live coding tasks rather than isolated exercises.</li></ul><div class="chips"><span>Web Development</span><span>Frontend Engineering</span><span>Remote Collaboration</span></div>
+        </div></div>
+    
+        <div class="tl-item reveal"><div class="tl-card glass">
+          <div class="tl-date">2026.08 — 2026.09</div>
+          <div class="tl-head"><h3>Full Stack Development Intern</h3><span class="tl-co">Progree<em>Remote</em></span></div>
+          <p class="tl-loc"><i class="fa-solid fa-location-dot"></i> Lahore, Punjab, Pakistan (Remote)</p>
+          <ul><li>Completed a one-month virtual Full Stack Development internship (20 August – 20 September 2026).</li><li>Recognised in the Letter of Recommendation for excellent analytical skills, quickly acquiring new skills and adapting to emerging technologies.</li><li>Commended for collaboration and willingness to assist fellow team members.</li></ul><div class="chips"><span>Full Stack Development</span><span>Remote Collaboration</span></div>
+        </div></div>
+    
+        <div class="tl-item reveal"><div class="tl-card glass">
+          <div class="tl-date">2026.07 — 2026.08</div>
+          <div class="tl-head"><h3>Frontend Development Intern</h3><span class="tl-co">Khizex Software Solutions<em>Remote</em></span></div>
+          <p class="tl-loc"><i class="fa-solid fa-location-dot"></i> Lahore, Punjab, Pakistan (Remote)</p>
+          <ul><li>Selected for the Khizex Frontend Engineering Internship — Summer 2026, shipping one live, production-quality build per week.</li><li>Built an offline-first e-commerce frontend using Service Workers, Web Workers and IndexedDB for resilient state under flaky connectivity.</li><li>Built a scroll-driven 3D landing page (GSAP ScrollTrigger + Three.js), scoring 9.5/10 on internal review.</li><li>Built a real-time messenger UI and a headless, fully accessible <code>useCombobox</code> React hook shipped as a standalone TypeScript library, deployed live on Vercel.</li></ul><div class="chips"><span>React</span><span>TypeScript</span><span>Three.js</span><span>Accessibility</span></div>
+        </div></div>
+    
+        <div class="tl-item reveal"><div class="tl-card glass">
+          <div class="tl-date">2026.01 — 2026.02</div>
+          <div class="tl-head"><h3>Software Engineer Intern</h3><span class="tl-co">Code Alpha<em>Remote</em></span></div>
+          <p class="tl-loc"><i class="fa-solid fa-location-dot"></i> Lahore, Punjab, Pakistan (Remote)</p>
+          <ul><li>Supported staff in daily development workflows, freeing teams to focus on core platform releases.</li><li>Gained hands-on experience in production environments, applying core engineering principles directly to codebases.</li><li>Analysed architectural bottlenecks and collaborated in agile teams to propose solutions and refine user flows.</li><li>Co-authored presentation materials and developed features in group projects.</li></ul><div class="chips"><span>Software Development</span><span>Agile</span><span>Workflow Optimization</span><span>Problem-Solving</span></div>
+        </div></div>
+  </div>
+</div></section>
+
+<!-- PROJECTS -->
+<section id="projects"><div class="wrap">
+  <div class="eyebrow reveal">04 — Selected work</div>
+  <h2 class="title reveal">Things I've <em>built.</em></h2>
+  <div class="filters reveal">
+    <button class="active" data-filter="all">All</button><button data-filter="webapp">Web Apps</button><button data-filter="library">TS Library</button>
+    <button data-filter="realtime">Real-Time UI</button><button data-filter="3d">3D / WebGL</button><button data-filter="offline">Offline-First</button>
+  </div>
+  <div class="proj-grid">
+        <article class="proj glass tilt reveal" data-cat="3d" style="--d:0.00s">
+          <div class="proj-top"><span class="proj-num">01</span><div class="proj-links"><a href="https://github.com/mahnoor28-code/khizex-scroll-landing" target="_blank" rel="noopener" aria-label="GitHub repository"><i class="fa-brands fa-github"></i></a><a href="https://khizex-scroll-landing.vercel.app/" target="_blank" rel="noopener" aria-label="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+          <div class="cat-tag">3D / WebGL</div>
+          <h3>3D Scroll-Driven Landing Page<span class="score">9.5/10</span></h3>
+          <p>An Apple-style product page where a 3D model rotates, lifts, and reframes in lockstep with scroll position. Solves the &quot;pinned section that scrubs forward and backward exactly&quot; problem using GSAP ScrollTrigger and Lenis smooth scroll.</p>
+          <ul><li>Typed keyframe timeline drives model rotation, position, and camera distance.</li><li>Auto-fallback to a static image for no-WebGL, reduced-motion, or low-memory devices.</li><li>3D scene code-split and lazy-mounted; render loop pauses when off-screen.</li></ul>
+          <div class="chips"><span>React + Three.js</span><span>GSAP ScrollTrigger</span><span>Lenis</span></div>
+        </article>
+        <article class="proj glass tilt reveal" data-cat="library" style="--d:0.08s">
+          <div class="proj-top"><span class="proj-num">02</span><div class="proj-links"><a href="https://github.com/mahnoor28-code/HeadlessHydra" target="_blank" rel="noopener" aria-label="GitHub repository"><i class="fa-brands fa-github"></i></a><a href="https://headless-hydra.vercel.app" target="_blank" rel="noopener" aria-label="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+          <div class="cat-tag">TS Library</div>
+          <h3>HeadlessHydra — Combobox Library</h3>
+          <p>A headless useCombobox&lt;TItem&gt; React hook built for the Khizex Frontend Engineering Internship. Solves the problem of shipping a fully accessible, unstyled combobox that any team can drop into their own design system without fighting a component library&#x27;s CSS.</p>
+          <ul><li>Full ARIA combobox pattern with complete keyboard navigation.</li><li>Sync and async filtering, plus multi-select with chip rendering.</li><li>Event delegation for performance on large, dynamic option lists.</li></ul>
+          <div class="chips"><span>React 18</span><span>Strict TypeScript</span><span>Vite</span><span>ARIA</span></div>
+        </article>
+        <article class="proj glass tilt reveal" data-cat="offline" style="--d:0.16s">
+          <div class="proj-top"><span class="proj-num">03</span><div class="proj-links"><a href="https://github.com/mahnoor28-code/khizex-shoe-store" target="_blank" rel="noopener" aria-label="GitHub repository"><i class="fa-brands fa-github"></i></a><a href="https://khizex-shoe-store-mauve.vercel.app/" target="_blank" rel="noopener" aria-label="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+          <div class="cat-tag">Offline-First</div>
+          <h3>Offline-First Shoe Store</h3>
+          <p>A shoe store frontend built around one idea: the network is going to misbehave, and the UI should keep working anyway. 3D product viewing is the visual centerpiece; a hand-written offline queue is the actual engineering point.</p>
+          <ul><li>Hand-written Service Worker queues failed requests and flushes on reconnect.</li><li>Cart logic lives entirely in a Web Worker, persisted to raw IndexedDB.</li><li>A finite state machine physically blocks checkout while a sync is pending.</li></ul>
+          <div class="chips"><span>React + Three.js</span><span>Service Workers</span><span>IndexedDB</span></div>
+        </article>
+        <article class="proj glass tilt reveal" data-cat="realtime" style="--d:0.00s">
+          <div class="proj-top"><span class="proj-num">04</span><div class="proj-links"><a href="https://github.com/mahnoor28-code/khizex-ping" target="_blank" rel="noopener" aria-label="GitHub repository"><i class="fa-brands fa-github"></i></a><a href="https://khizex-ping.vercel.app/" target="_blank" rel="noopener" aria-label="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+          <div class="cat-tag">Real-Time UI</div>
+          <h3>Ping — Real-Time Messenger</h3>
+          <p>A chat interface that stays calm and correct while messages arrive asynchronously, mid-type, or in bursts. Solves smart auto-scroll (never yanking a user who&#x27;s reading history) and non-blocking input while a mock WebSocket transport pushes live traffic.</p>
+          <ul><li>Smart auto-scroll with a &quot;New messages ↓&quot; affordance instead of a forced jump.</li><li>Read receipts (sent → delivered → read) over a realistic mock transport.</li><li>Zero any in the codebase; aria-live regions for screen readers.</li></ul>
+          <div class="chips"><span>React 18</span><span>Strict TypeScript</span><span>useReducer</span><span>a11y</span></div>
+        </article>
+        <article class="proj glass tilt reveal" data-cat="webapp" style="--d:0.08s">
+          <div class="proj-top"><span class="proj-num">05</span><div class="proj-links"><a href="https://github.com/mahnoor28-code/campus-connect" target="_blank" rel="noopener" aria-label="GitHub repository"><i class="fa-brands fa-github"></i></a><a href="https://campus-connect-peach-seven.vercel.app/" target="_blank" rel="noopener" aria-label="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+          <div class="cat-tag">Web App</div>
+          <h3>Circle — Social Network</h3>
+          <p>A client-side social platform with profiles, a live feed, likes, comments, friend requests, notifications and privacy settings. Real-time sync across browser tabs via the storage event.</p>
+          <ul><li>Per-tab sessions so two tabs can be two different users at once.</li><li>Private-profile setting that limits posts to friends.</li><li>Live notification badge for likes, comments and friend requests.</li></ul>
+          <div class="chips"><span>JavaScript</span><span>localStorage</span><span>Storage Events</span><span>Responsive UI</span></div>
+        </article>
+        <article class="proj glass tilt reveal" data-cat="webapp" style="--d:0.16s">
+          <div class="proj-top"><span class="proj-num">06</span><div class="proj-links"><a href="https://afterglow-music-player.vercel.app/" target="_blank" rel="noopener" aria-label="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+          <div class="cat-tag">Web App</div>
+          <h3>Afterglow — Music Player</h3>
+          <p>A custom-built music player with playlist, search and category filtering, streaming official artist uploads through the YouTube IFrame API behind a fully hand-made control UI.</p>
+          <ul><li>Play, pause, skip, seek, volume, shuffle and repeat controls.</li><li>Live search by title or artist, plus category filter chips.</li><li>Progress and state kept in sync with the embedded player.</li></ul>
+          <div class="chips"><span>JavaScript</span><span>YouTube IFrame API</span><span>CSS</span></div>
+        </article>
+        <article class="proj glass tilt reveal" data-cat="webapp" style="--d:0.00s">
+          <div class="proj-top"><span class="proj-num">07</span><div class="proj-links"><a href="https://night-ledger-todo.vercel.app/" target="_blank" rel="noopener" aria-label="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+          <div class="cat-tag">Web App</div>
+          <h3>Night Ledger — To-Do App</h3>
+          <p>A task manager with due dates, browser reminders, drag-and-drop reordering and keyword search, built for the Arch Technologies Web Development Internship.</p>
+          <ul><li>Add, edit, complete and delete tasks with localStorage persistence.</li><li>Due-date highlighting and optional browser notifications.</li><li>Drag-and-drop reorder with live search combined with All / Active / Done filters.</li></ul>
+          <div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>localStorage</span></div>
+        </article>
+  </div>
+  <div class="archive">
+    <h3 class="reveal">The archive</h3>
+    <p class="reveal">Earlier coursework and personal builds, from before the internships.</p>
+    <div class="arc-list">
+          <div class="arc reveal"><span class="arc-n">01</span><h4>EduManage ERP</h4><p>A role-based school management app for administration, class scheduling, and parent-teacher communication, with Firebase-powered push notifications.</p><div class="chips"><span>Flutter</span><span>Firebase</span><span>Dart</span></div><a href="https://github.com/mahnoor28-code/EDUMANAGE" target="_blank" rel="noopener" aria-label="GitHub repository"><i class="fa-brands fa-github"></i></a></div>
+          <div class="arc reveal"><span class="arc-n">02</span><h4>Protego — Safety Ring Store</h4><p>A full-stack e-commerce website built for purchasing personal safety rings, with a React/Next.js storefront backed by a Node.js/Express API.</p><div class="chips"><span>React / Next.js</span><span>Node.js</span><span>Express</span></div><a href="https://github.com/mahnoor28-code/Protego_Website" target="_blank" rel="noopener" aria-label="GitHub repository"><i class="fa-brands fa-github"></i></a></div>
+          <div class="arc reveal"><span class="arc-n">03</span><h4>Hotel Management System App</h4><p>A Flutter mobile app for managing hotel bookings and daily front-desk operations from a single, cross-platform interface.</p><div class="chips"><span>Flutter</span><span>Dart</span></div><a href="https://github.com/mahnoor28-code/hotel_management_system_app" target="_blank" rel="noopener" aria-label="GitHub repository"><i class="fa-brands fa-github"></i></a></div>
+          <div class="arc reveal"><span class="arc-n">04</span><h4>Bubble Sort Visualizer</h4><p>An interactive Bubble Sort game that incorporates K-Means Clustering to visualize how the sorting algorithm groups and orders data over time.</p><div class="chips"><span>JavaScript</span><span>Algorithms</span><span>Data Viz</span></div><a href="https://github.com/mahnoor28-code/Bubble-Sort" target="_blank" rel="noopener" aria-label="GitHub repository"><i class="fa-brands fa-github"></i></a></div>
+          <div class="arc reveal"><span class="arc-n">05</span><h4>Hotel Booking &amp; Billing Engine</h4><p>A desktop system powered by a SQL relational backend with 15+ interconnected tables, transaction management, and stored procedures for booking generation.</p><div class="chips"><span>C++</span><span>SQL Server</span></div><span></span></div>
+          <div class="arc reveal"><span class="arc-n">06</span><h4>MySQL Hotel Operations Schema</h4><p>A normalized (BCNF) database design with full ER modeling, functional dependency analysis, and visual schema relational graphs.</p><div class="chips"><span>MySQL</span><span>ER Modeling</span></div><span></span></div>
+          <div class="arc reveal"><span class="arc-n">07</span><h4>Ride-Hailing Workflow Redesign</h4><p>A Business Process Engineering study that restructured ride-hailing dispatch and matchmaking, cutting cancellation ratios by 60% in simulation.</p><div class="chips"><span>BPE</span><span>Workflow Simulation</span></div><span></span></div>
+          <div class="arc reveal"><span class="arc-n">08</span><h4>SJF Library Queue Simulator</h4><p>Simulates book checkouts and returns using the Shortest Job First scheduling algorithm, visualizing waiting and turnaround times.</p><div class="chips"><span>C++</span><span>OS Algorithms</span></div><span></span></div>
+          <div class="arc reveal"><span class="arc-n">09</span><h4>Pointer-Based Contact Manager</h4><p>A console CRUD app built on dynamic singly linked lists, with alphabetical sorting, instant search, and persistent file I/O.</p><div class="chips"><span>C++</span><span>Data Structures</span></div><span></span></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- CERTIFICATES -->
+<section id="certificates"><div class="wrap">
+  <div class="eyebrow reveal">05 — Credentials</div>
+  <h2 class="title reveal">Proof, <em>on paper.</em></h2>
+  <div class="cert-grid">
+    
+        <button class="cert glass clickable reveal" data-src="assets/certificates/khizex-certificate.jpg" data-type="image" data-title="Certificate of Completion — Khizex Software Solutions">
+          <div class="cert-ic"><i class="fa-solid fa-award"></i></div>
+          <div><h3>Certificate of Completion</h3><div class="by">Khizex Software Solutions</div><p>Completed a 6-week production-engineering internship — Excellent (A) grade, 85% aggregate across git discipline, code quality, technical defense and public showcase.</p><span class="view"><i class="fa-solid fa-eye"></i> View certificate</span></div>
+        </button>
+    
+        <button class="cert glass clickable reveal" data-src="assets/certificates/khizex-experience-certificate.jpg" data-type="image" data-title="Experience Certificate — Khizex Software Solutions">
+          <div class="cert-ic"><i class="fa-solid fa-file-shield"></i></div>
+          <div><h3>Experience Certificate</h3><div class="by">Khizex Software Solutions</div><p>Official record of the 6-week industrial internship (05 July – 16 August 2026) in Frontend Development.</p><span class="view"><i class="fa-solid fa-eye"></i> View certificate</span></div>
+        </button>
+    
+        <button class="cert glass clickable reveal" data-src="assets/certificates/khizex-lor.jpg" data-type="image" data-title="Letter of Recommendation — Khizex Software Solutions">
+          <div class="cert-ic"><i class="fa-solid fa-signature"></i></div>
+          <div><h3>Letter of Recommendation</h3><div class="by">Khizex Software Solutions</div><p>Highest endorsement from Umer Farooq, Co-Founder &amp; CEO, citing technical proficiency, ownership of clean architecture and cross-functional communication.</p><span class="view"><i class="fa-solid fa-eye"></i> View certificate</span></div>
+        </button>
+    
+        <button class="cert glass clickable reveal" data-src="assets/certificates/progree-certificate.jpg" data-type="image" data-title="Certificate of Completion — Progree">
+          <div class="cert-ic"><i class="fa-solid fa-award"></i></div>
+          <div><h3>Full Stack Development Internship</h3><div class="by">Progree</div><p>Certificate of Completion for a one-month Full Stack Development internship, 20 August – 20 September 2026 (Verification ID PG-419).</p><span class="view"><i class="fa-solid fa-eye"></i> View certificate</span></div>
+        </button>
+    
+        <button class="cert glass clickable reveal" data-src="assets/certificates/progree-lor.jpg" data-type="image" data-title="Letter of Recommendation — Progree">
+          <div class="cert-ic"><i class="fa-solid fa-signature"></i></div>
+          <div><h3>Letter of Recommendation</h3><div class="by">Progree</div><p>From Umar Mushtaq, Founder &amp; CEO — excellent analytical skills, quick adaptation to emerging technologies and strong team collaboration.</p><span class="view"><i class="fa-solid fa-eye"></i> View certificate</span></div>
+        </button>
+    
+        <button class="cert glass clickable reveal" data-src="assets/certificates/codealpha-certificate.pdf" data-type="pdf" data-title="Frontend Development Internship — CodeAlpha">
+          <div class="cert-ic"><i class="fa-solid fa-certificate"></i></div>
+          <div><h3>Frontend Development Internship</h3><div class="by">CodeAlpha</div><p>Active participant in the CodeAlpha Virtual Internship Program, Frontend Development track — January to February 2026.</p><span class="view"><i class="fa-solid fa-eye"></i> View certificate</span></div>
+        </button>
+    
+        <button class="cert glass clickable reveal" data-src="assets/certificates/sololearn-sql.jpg" data-type="image" data-title="Introduction to SQL — SoloLearn">
+          <div class="cert-ic"><i class="fa-solid fa-database"></i></div>
+          <div><h3>Introduction to SQL</h3><div class="by">SoloLearn</div><p>Relational databases, query structure, indexing, aggregation and joining techniques.</p><span class="view"><i class="fa-solid fa-eye"></i> View certificate</span></div>
+        </button>
+    
+        <button class="cert glass clickable reveal" data-src="assets/certificates/sololearn-html.jpg" data-type="image" data-title="Introduction to HTML — SoloLearn">
+          <div class="cert-ic"><i class="fa-brands fa-html5"></i></div>
+          <div><h3>Introduction to HTML</h3><div class="by">SoloLearn</div><p>Semantic tags, structure creation, embedding media and document structure essentials.</p><span class="view"><i class="fa-solid fa-eye"></i> View certificate</span></div>
+        </button>
+    
+        <div class="cert glass reveal">
+          <div class="cert-ic"><i class="fa-solid fa-hands-holding-heart"></i></div>
+          <div><h3>Volunteer Certificate (x2)</h3><div class="by">Alkhidmat Foundation</div><p>Awarded for active community participation, leadership and volunteer support during public events.</p></div>
         </div>
-    </header>
+  </div>
+</div></section>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero-section">
-            <div class="section-container hero-grid">
-                <div class="hero-content">
-                    <span class="hero-greeting">Hi there, I'm</span>
-                    <h1 class="hero-name">Mahnoor Sohail</h1>
-                    <h2 class="hero-title">
-                        <span class="static-txt">I am a </span>
-                        <span class="dynamic-txt" id="dynamic-txt">Software Engineer</span>
-                    </h2>
-                    <p class="hero-desc">
-                        Software Engineering student at Superior University with a strong CGPA of <strong>3.85/4.0</strong>. I specialize in building high-performance mobile apps with <strong>Flutter & Firebase</strong>, developing robust database schemas with <strong>SQL/MySQL</strong>, and creating responsive web applications.
-                    </p>
-                    <div class="hero-ctas">
-                        <a href="#projects" class="btn btn-primary">View Projects <i class="fa-solid fa-arrow-right"></i></a>
-                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                        <a href="#about" class="btn btn-tertiary"><i class="fa-solid fa-download"></i> View Quick Bio</a>
-                    </div>
-                </div>
-                <div class="hero-graphic">
-                    <div class="graphic-wrapper">
-                        <img src="assets/images/profile.jpg" alt="Mahnoor Sohail" class="hero-img hero-photo">
-                        <div class="tech-badge badge-flutter"><i class="fa-brands fa-flutter"></i> Flutter</div>
-                        <div class="tech-badge badge-firebase"><i class="fa-solid fa-fire"></i> Firebase</div>
-                        <div class="tech-badge badge-db"><i class="fa-solid fa-database"></i> SQL</div>
-                        <div class="tech-badge badge-cpp">C++</div>
-                    </div>
-                </div>
-            </div>
-            <a href="#about" class="scroll-indicator" aria-label="Scroll to About section">
-                <span>Scroll Down</span>
-                <i class="fa-solid fa-chevron-down bounce"></i>
-            </a>
-        </section>
+<!-- TESTIMONIALS -->
+<section id="testimonials"><div class="wrap">
+  <div class="eyebrow reveal">06 — Endorsements</div>
+  <h2 class="title reveal">What people <em>say.</em></h2>
+  <div class="quotes">
+    
+        <div class="quote glass reveal"><blockquote>“Mahnoor Sohail has demonstrated outstanding technical acumen, high discipline, and collaborative spirit throughout their tenure at Khizex. Their deliverables adhered strictly to production engineering benchmarks.”</blockquote>
+          <footer><div class="av">KX</div><div><cite>G.M Khizar &amp; Umer Farooq</cite><small>Founder &amp; Co-Founder/CEO, Khizex Software Solutions</small></div></footer></div>
+    
+        <div class="quote glass reveal"><blockquote>“Mahnoor consistently demonstrated a stellar work ethic, exceptional technical proficiency, and a genuine passion for software engineering excellence.”</blockquote>
+          <footer><div class="av">UF</div><div><cite>Umer Farooq</cite><small>Co-Founder &amp; CEO, Khizex — Letter of Recommendation</small></div></footer></div>
+    
+        <div class="quote glass reveal"><blockquote>“You&#x27;re a technically exceptional engineer who understands modern browser APIs (Web Workers, Service Workers, and raw IndexedDB) and state architectures... represents a solid hire for a core frontend/architecture role.”</blockquote>
+          <footer><div class="av">K</div><div><cite>Khizex Supervisor</cite><small>Task evaluation — Offline-First Shoe Store</small></div></footer></div>
+    
+        <div class="quote glass reveal"><blockquote>“She has excellent analytical skills and quickly acquired new skills and adeptly adapted to emerging technologies, demonstrating a high level of productivity.”</blockquote>
+          <footer><div class="av">UM</div><div><cite>Umar Mushtaq</cite><small>Founder &amp; CEO, Progree — Letter of Recommendation</small></div></footer></div>
+  </div>
+</div></section>
 
-        <!-- About Section -->
-        <section id="about" class="about-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="subtitle">01. Biography</span>
-                    <h2 class="title">About Me</h2>
-                    <div class="header-line"></div>
-                </div>
-                
-                <div class="about-grid">
-                    <div class="about-text">
-                        <p>
-                            I am currently pursuing a <strong>Bachelor's degree in Software Engineering (2023-2027)</strong> at <strong>Superior University, Lahore</strong>. Throughout my studies, I have maintained an outstanding academic record (<strong>GPA: 3.85/4.0</strong>) while gaining extensive hands-on experience by building real-world projects.
-                        </p>
-                        <p>
-                            My development journey is centered around creating clean, optimized, and user-centric solutions. Whether designing mobile client architectures in Flutter, writing complex database queries, or simulating system algorithms in C++, I focus on writing high-quality code and optimizing execution speed.
-                        </p>
-                        <p>
-                            Outside of writing code, I love brainstorming UI/UX improvements, solving algorithmic problems, and participating in collaborative team environments.
-                        </p>
-                        
-                        <div class="education-card">
-                            <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                            <div class="edu-details">
-                                <h3>Bachelor in Software Engineering</h3>
-                                <p class="edu-univ">Superior University, Lahore</p>
-                                <div class="edu-meta">
-                                    <span class="edu-date"><i class="fa-regular fa-calendar"></i> 2023 - 2027</span>
-                                    <span class="edu-gpa"><i class="fa-solid fa-star"></i> GPA: 3.85 / 4.0</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="about-skills-soft">
-                        <h3 class="soft-skills-title">Core Principles & Soft Skills</h3>
-                        <div class="soft-skills-grid">
-                            <div class="soft-skill-card">
-                                <div class="icon-wrap"><i class="fa-solid fa-brain"></i></div>
-                                <h4>Critical Thinking</h4>
-                                <p>Analyzing process bottlenecks and engineering optimal system logic.</p>
-                            </div>
-                            <div class="soft-skill-card">
-                                <div class="icon-wrap"><i class="fa-solid fa-users"></i></div>
-                                <h4>Teamwork</h4>
-                                <p>Collaborating effectively with team members, aligning on goals, and hosting presentations.</p>
-                            </div>
-                            <div class="soft-skill-card">
-                                <div class="icon-wrap"><i class="fa-solid fa-lightbulb"></i></div>
-                                <h4>Problem-Solving</h4>
-                                <p>Applying data structures and algorithms to resolve real-world bottlenecks.</p>
-                            </div>
-                            <div class="soft-skill-card">
-                                <div class="icon-wrap"><i class="fa-solid fa-comments"></i></div>
-                                <h4>Communication</h4>
-                                <p>Bridging the gap between technical system capabilities and user-friendly requirements.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- CONTACT -->
+<section id="contact"><div class="wrap">
+  <div class="eyebrow reveal">07 — Contact</div>
+  <h2 class="contact-big reveal">Let's build<br>something <span class="grad-text">together.</span></h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="c-item glass reveal"><div class="c-ic"><i class="fa-solid fa-envelope"></i></div><div><small>Email</small><span>Sohailmahnoor52@gmail.com</span></div><button class="copy-btn" id="copy-email" aria-label="Copy email address"><i class="fa-regular fa-copy"></i></button></div>
+      <a href="tel:+923201441227" class="c-item glass reveal" style="--d:.08s"><div class="c-ic"><i class="fa-solid fa-phone"></i></div><div><small>Phone</small><span>(+92) 320-1441227</span></div></a>
+      <div class="c-item glass reveal" style="--d:.16s"><div class="c-ic"><i class="fa-solid fa-location-dot"></i></div><div><small>Location</small><span>Lahore, Punjab, Pakistan</span></div></div>
+      <div class="socials reveal" style="--d:.24s">
+        <a href="https://www.linkedin.com/in/mahnoor-sohail-a1449936b/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://github.com/mahnoor28-code" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+    <form id="contact-form" class="glass reveal" autocomplete="off" novalidate>
+      <div class="field"><input type="text" id="name" placeholder=" " required><label for="name">Your name</label></div>
+      <div class="field"><input type="email" id="email" placeholder=" " required><label for="email">Your email</label></div>
+      <div class="field"><input type="text" id="subject" placeholder=" " required><label for="subject">Subject</label></div>
+      <div class="field"><textarea id="message" rows="5" placeholder=" " required></textarea><label for="message">Message</label></div>
+      <button type="submit" class="btn btn-primary btn-submit">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+      <div class="form-msg" id="form-msg" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</div></section>
+</main>
 
-        <!-- Skills Section -->
-        <section id="skills" class="skills-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="subtitle">02. Expertise</span>
-                    <h2 class="title">My Skills</h2>
-                    <div class="header-line"></div>
-                </div>
+<footer class="site"><div class="wrap"><span>Designed &amp; built by <b>Mahnoor Sohail</b> © 2026</span><span>mahnoor<b>.build</b></span></div></footer>
 
-                <div class="skills-grid">
-                    <!-- Category 1: Mobile App Development -->
-                    <div class="skills-category-card">
-                        <div class="cat-header">
-                            <i class="fa-solid fa-mobile-screen-button"></i>
-                            <h3>Mobile App Development</h3>
-                        </div>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Flutter</span>
-                                    <span>90%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: 90%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Firebase (Auth, Firestore, Cloud)</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: 85%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Android Studio</span>
-                                    <span>80%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: 80%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Category 2: Programming & Databases -->
-                    <div class="skills-category-card">
-                        <div class="cat-header">
-                            <i class="fa-solid fa-code"></i>
-                            <h3>Programming & Databases</h3>
-                        </div>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>C++ (OOP, DS, File I/O)</span>
-                                    <span>88%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: 88%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>SQL</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: 85%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>MySQL (ER Models, Normalization)</span>
-                                    <span>82%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: 82%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Category 3: Web & Systems -->
-                    <div class="skills-category-card">
-                        <div class="cat-header">
-                            <i class="fa-solid fa-globe"></i>
-                            <h3>Web & Systems</h3>
-                        </div>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>HTML5 & CSS3</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: 85%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>JavaScript (Basic ES6)</span>
-                                    <span>65%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: 65%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Web Engineering & BPE Redesign</span>
-                                    <span>80%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: 80%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="experience-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="subtitle">03. Career Path</span>
-                    <h2 class="title">Work Experience</h2>
-                    <div class="header-line"></div>
-                </div>
-
-                <div class="timeline">
-                    <!-- Experience Item 1: Arch Technologies -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2026.08 - 2026.09</div>
-                        <div class="timeline-content">
-                            <div class="timeline-title-bar">
-                                <h3>Web Development Intern</h3>
-                                <span class="company">Arch Technologies <span class="badge-rem">Remote</span></span>
-                            </div>
-                            <p class="location"><i class="fa-solid fa-location-dot"></i> Lahore, Punjab, Pakistan (Remote)</p>
-                            <ul class="experience-details">
-                                <li>Selected for an 8-week Web Development Internship and Training Program focused on hands-on, production-style frontend work.</li>
-                                <li>Built and shipped real deliverables against sequential weekly build tasks, with structured feedback and scoring after each submission.</li>
-                                <li>Applied concepts learned through orientation directly to live coding tasks rather than isolated exercises.</li>
-                            </ul>
-                            <div class="experience-tech-tags">
-                                <span>Web Development</span>
-                                <span>Frontend Engineering</span>
-                                <span>Remote Collaboration</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Experience Item: Progree -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2026.08 - 2026.09</div>
-                        <div class="timeline-content">
-                            <div class="timeline-title-bar">
-                                <h3>Full Stack Development Intern</h3>
-                                <span class="company">Progree <span class="badge-rem">Remote</span></span>
-                            </div>
-                            <p class="location"><i class="fa-solid fa-location-dot"></i> Lahore, Punjab, Pakistan (Remote)</p>
-                            <ul class="experience-details">
-                                <li>Completed a one-month virtual Full Stack Development internship (20 August – 20 September 2026).</li>
-                                <li>Recognised in the Letter of Recommendation for strong analytical skills, quickly acquiring new skills, and adapting to emerging technologies.</li>
-                                <li>Collaborated with fellow team members and was commended for willingness to assist others.</li>
-                            </ul>
-                            <div class="experience-tech-tags">
-                                <span>Full Stack Development</span>
-                                <span>Remote Collaboration</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Experience Item 2: Khizex -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2026.07 - 2026.08</div>
-                        <div class="timeline-content">
-                            <div class="timeline-title-bar">
-                                <h3>Frontend Development Intern</h3>
-                                <span class="company">Khizex Software Solutions <span class="badge-rem">Remote</span></span>
-                            </div>
-                            <p class="location"><i class="fa-solid fa-location-dot"></i> Lahore, Punjab, Pakistan (Remote)</p>
-                            <ul class="experience-details">
-                                <li>Selected for the Khizex Frontend Engineering Internship — Summer 2026 Program, shipping one live, production-quality build per week.</li>
-                                <li>Built an offline-first e-commerce frontend using Service Workers, Web Workers, and IndexedDB for resilient state under flaky connectivity.</li>
-                                <li>Built a scroll-driven 3D landing page (GSAP ScrollTrigger + Three.js), scoring 9.5/10 on internal review.</li>
-                                <li>Built a real-time messenger UI and a headless, fully accessible <code>useCombobox</code> React hook shipped as a standalone TypeScript library, deployed live on Vercel.</li>
-                            </ul>
-                            <div class="experience-tech-tags">
-                                <span>React</span>
-                                <span>TypeScript</span>
-                                <span>Three.js</span>
-                                <span>Accessibility</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Experience Item 3 -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2026.01 - 2026.02</div>
-                        <div class="timeline-content">
-                            <div class="timeline-title-bar">
-                                <h3>Software Engineer Intern</h3>
-                                <span class="company">Code Alpha <span class="badge-rem">Remote</span></span>
-                            </div>
-                            <p class="location"><i class="fa-solid fa-location-dot"></i> Lahore, Punjab, Pakistan (Remote)</p>
-                            <ul class="experience-details">
-                                <li>Supported staff members in their daily development workflows, reducing workload burdens and allowing teams to focus on core platform releases.</li>
-                                <li>Gained hands-on experience in production environments, applying core engineering principles and software paradigms directly to codebases.</li>
-                                <li>Analyzed architectural bottlenecks, collaborated in agile teams to propose solutions, and refined user flows.</li>
-                                <li>Contributed to a productive team environment by co-authoring presentation materials and developing features in group projects.</li>
-                            </ul>
-                            <div class="experience-tech-tags">
-                                <span>Software Development</span>
-                                <span>Agile Processes</span>
-                                <span>Workflow Optimization</span>
-                                <span>Problem-Solving</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="projects-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="subtitle">04. Selected Works</span>
-                    <h2 class="title">My Projects</h2>
-                    <div class="header-line"></div>
-                </div>
-
-                <!-- Projects Filters -->
-                <div class="project-filters">
-                    <button class="filter-btn active" data-filter="all">All Projects</button>
-                    <button class="filter-btn" data-filter="library">TS Library</button>
-                    <button class="filter-btn" data-filter="realtime">Real-Time UI</button>
-                    <button class="filter-btn" data-filter="3d">3D / WebGL</button>
-                    <button class="filter-btn" data-filter="offline">Offline-First</button>
-                    <button class="filter-btn" data-filter="webapp">Web Apps</button>
-                </div>
-
-                <div class="projects-grid" id="projects-grid">
-                    <div class="project-card" data-category="webapp">
-                        <div class="project-card-header">
-                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-                            <div class="project-links">
-                                <a href="https://night-ledger-todo.vercel.app/" target="_blank" class="project-demo-link" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
-                        </div>
-                        <div class="project-card-body">
-                            <h3 class="project-title">Night Ledger — To-Do App</h3>
-                            <p class="project-desc">
-                                A task manager with due dates, browser reminders, drag-and-drop reordering and keyword search, built for the Arch Technologies Web Development Internship.
-                            </p>
-                            <ul class="project-features">
-                                <li>Add, edit, complete and delete tasks with localStorage persistence.</li>
-                                <li>Due-date highlighting and optional browser notifications.</li>
-                                <li>Drag-and-drop reorder with live search combined with All / Active / Done filters.</li>
-                            </ul>
-                        </div>
-                        <div class="project-card-footer">
-                            <div class="project-tags">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
-                                <span>localStorage</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-category="webapp">
-                        <div class="project-card-header">
-                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-                            <div class="project-links">
-                                <a href="https://afterglow-music-player.vercel.app/" target="_blank" class="project-demo-link" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
-                        </div>
-                        <div class="project-card-body">
-                            <h3 class="project-title">Afterglow — Music Player</h3>
-                            <p class="project-desc">
-                                A custom-built music player with playlist, search and category filtering, streaming official artist uploads through the YouTube IFrame API behind a fully hand-made control UI.
-                            </p>
-                            <ul class="project-features">
-                                <li>Play, pause, skip, seek, volume, shuffle and repeat controls.</li>
-                                <li>Live search by title or artist, plus category filter chips.</li>
-                                <li>Progress and state kept in sync with the embedded player.</li>
-                            </ul>
-                        </div>
-                        <div class="project-card-footer">
-                            <div class="project-tags">
-                                <span>JavaScript</span>
-                                <span>YouTube IFrame API</span>
-                                <span>CSS</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-category="webapp">
-                        <div class="project-card-header">
-                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-                            <div class="project-links">
-                                <a href="https://github.com/mahnoor28-code/campus-connect" target="_blank" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
-                                <a href="https://campus-connect-peach-seven.vercel.app/" target="_blank" class="project-demo-link" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
-                        </div>
-                        <div class="project-card-body">
-                            <h3 class="project-title">Circle — Social Network</h3>
-                            <p class="project-desc">
-                                A client-side social platform with profiles, a live feed, likes, comments, friend requests, notifications and privacy settings. Real-time sync across browser tabs via the storage event.
-                            </p>
-                            <ul class="project-features">
-                                <li>Per-tab sessions so two tabs can be two different users at once.</li>
-                                <li>Private-profile setting that limits posts to friends.</li>
-                                <li>Live notification badge for likes, comments and friend requests.</li>
-                            </ul>
-                        </div>
-                        <div class="project-card-footer">
-                            <div class="project-tags">
-                                <span>JavaScript</span>
-                                <span>localStorage</span>
-                                <span>Storage Events</span>
-                                <span>Responsive UI</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 1: HeadlessHydra -->
-                    <div class="project-card" data-category="library">
-                        <div class="project-card-header">
-                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-                            <div class="project-links">
-                                <a href="https://github.com/mahnoor28-code/HeadlessHydra" target="_blank" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
-                                <a href="https://headless-hydra.vercel.app" target="_blank" class="project-demo-link" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
-                        </div>
-                        <div class="project-card-body">
-                            <h3 class="project-title">HeadlessHydra — Combobox Library</h3>
-                            <p class="project-desc">
-                                A headless <code>useCombobox&lt;TItem&gt;</code> React hook built for the Khizex Frontend Engineering Internship. Solves the problem of shipping a fully accessible, unstyled combobox that any team can drop into their own design system without fighting a component library's CSS.
-                            </p>
-                            <ul class="project-features">
-                                <li>Full ARIA combobox pattern with complete keyboard navigation.</li>
-                                <li>Sync and async filtering, plus multi-select with chip rendering.</li>
-                                <li>Event delegation for performance on large, dynamic option lists.</li>
-                            </ul>
-                        </div>
-                        <div class="project-card-footer">
-                            <div class="project-tags">
-                                <span>React 18</span>
-                                <span>Strict TypeScript</span>
-                                <span>Vite</span>
-                                <span>ARIA</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 2: Ping - Real-Time Messenger -->
-                    <div class="project-card" data-category="realtime">
-                        <div class="project-card-header">
-                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-                            <div class="project-links">
-                                <a href="https://github.com/mahnoor28-code/khizex-ping" target="_blank" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
-                                <a href="https://khizex-ping.vercel.app/" target="_blank" class="project-demo-link" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
-                        </div>
-                        <div class="project-card-body">
-                            <h3 class="project-title">Ping — Real-Time Messenger</h3>
-                            <p class="project-desc">
-                                A chat interface that stays calm and correct while messages arrive asynchronously, mid-type, or in bursts. Solves smart auto-scroll (never yanking a user who's reading history) and non-blocking input while a mock WebSocket transport pushes live traffic.
-                            </p>
-                            <ul class="project-features">
-                                <li>Smart auto-scroll with a "New messages ↓" affordance instead of a forced jump.</li>
-                                <li>Read receipts (sent → delivered → read) over a realistic mock transport.</li>
-                                <li>Zero <code>any</code> in the codebase; aria-live regions for screen readers.</li>
-                            </ul>
-                        </div>
-                        <div class="project-card-footer">
-                            <div class="project-tags">
-                                <span>React 18</span>
-                                <span>Strict TypeScript</span>
-                                <span>useReducer</span>
-                                <span>a11y</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 3: 3D Scroll-Driven Landing Page -->
-                    <div class="project-card" data-category="3d">
-                        <div class="project-card-header">
-                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-                            <div class="project-links">
-                                <a href="https://github.com/mahnoor28-code/khizex-scroll-landing" target="_blank" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
-                                <a href="https://khizex-scroll-landing.vercel.app/" target="_blank" class="project-demo-link" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
-                        </div>
-                        <div class="project-card-body">
-                            <h3 class="project-title">3D Scroll-Driven Landing Page <span class="score-pill">9.5/10</span></h3>
-                            <p class="project-desc">
-                                An Apple-style product page where a 3D model rotates, lifts, and reframes in lockstep with scroll position. Solves the "pinned section that scrubs forward and backward exactly" problem using GSAP ScrollTrigger and Lenis smooth scroll.
-                            </p>
-                            <ul class="project-features">
-                                <li>Typed keyframe timeline drives model rotation, position, and camera distance.</li>
-                                <li>Auto-fallback to a static image for no-WebGL, reduced-motion, or low-memory devices.</li>
-                                <li>3D scene code-split and lazy-mounted; render loop pauses when off-screen.</li>
-                            </ul>
-                        </div>
-                        <div class="project-card-footer">
-                            <div class="project-tags">
-                                <span>React + Three.js</span>
-                                <span>GSAP ScrollTrigger</span>
-                                <span>Lenis</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 4: Offline-First Shoe Store -->
-                    <div class="project-card" data-category="offline">
-                        <div class="project-card-header">
-                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-                            <div class="project-links">
-                                <a href="https://github.com/mahnoor28-code/khizex-shoe-store" target="_blank" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
-                                <a href="https://khizex-shoe-store-mauve.vercel.app/" target="_blank" class="project-demo-link" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
-                        </div>
-                        <div class="project-card-body">
-                            <h3 class="project-title">Offline-First Shoe Store</h3>
-                            <p class="project-desc">
-                                A shoe store frontend built around one idea: the network is going to misbehave, and the UI should keep working anyway. 3D product viewing is the visual centerpiece; a hand-written offline queue is the actual engineering point.
-                            </p>
-                            <ul class="project-features">
-                                <li>Hand-written Service Worker queues failed requests and flushes on reconnect.</li>
-                                <li>Cart logic lives entirely in a Web Worker, persisted to raw IndexedDB.</li>
-                                <li>A finite state machine physically blocks checkout while a sync is pending.</li>
-                            </ul>
-                        </div>
-                        <div class="project-card-footer">
-                            <div class="project-tags">
-                                <span>React + Three.js</span>
-                                <span>Service Workers</span>
-                                <span>IndexedDB</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Academic & Personal Projects Section -->
-        <section id="academic-projects" class="projects-section academic-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="subtitle">04b. Academic Archive</span>
-                    <h2 class="title">Academic & Personal Projects</h2>
-                    <div class="header-line"></div>
-                    <p class="section-subtext">Earlier coursework and personal builds, from before the Khizex internship.</p>
-                </div>
-
-                <div class="projects-grid academic-grid">
-                    <!-- EduManage ERP -->
-                    <div class="project-card">
-                        <div class="project-card-header">
-                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-                            <div class="project-links">
-                                <a href="https://github.com/mahnoor28-code/EDUMANAGE" target="_blank" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                        <div class="project-card-body">
-                            <h3 class="project-title">EduManage ERP</h3>
-                            <p class="project-desc">
-                                A role-based school management app for administration, class scheduling, and parent-teacher communication, with Firebase-powered push notifications.
-                            </p>
-                        </div>
-                        <div class="project-card-footer">
-                            <div class="project-tags">
-                                <span>Flutter</span>
-                                <span>Firebase</span>
-                                <span>Dart</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Protego -->
-                    <div class="project-card">
-                        <div class="project-card-header">
-                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-                            <div class="project-links">
-                                <a href="https://github.com/mahnoor28-code/Protego_Website" target="_blank" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                        <div class="project-card-body">
-                            <h3 class="project-title">Protego — Safety Ring Store</h3>
-                            <p class="project-desc">
-                                A full-stack e-commerce website built for purchasing personal safety rings, with a React/Next.js storefront backed by a Node.js/Express API.
-                            </p>
-                        </div>
-                        <div class="project-card-footer">
-                            <div class="project-tags">
-                                <span>React / Next.js</span>
-                                <span>Node.js</span>
-                                <span>Express</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Hotel Management System App -->
-                    <div class="project-card">
-                        <div class="project-card-header">
-                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-                            <div class="project-links">
-                                <a href="https://github.com/mahnoor28-code/hotel_management_system_app" target="_blank" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                        <div class="project-card-body">
-                            <h3 class="project-title">Hotel Management System App</h3>
-                            <p class="project-desc">
-                                A Flutter mobile app for managing hotel bookings and daily front-desk operations from a single, cross-platform interface.
-                            </p>
-                        </div>
-                        <div class="project-card-footer">
-                            <div class="project-tags">
-                                <span>Flutter</span>
-                                <span>Dart</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bubble Sort Visualizer -->
-                    <div class="project-card">
-                        <div class="project-card-header">
-                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-                            <div class="project-links">
-                                <a href="https://github.com/mahnoor28-code/Bubble-Sort" target="_blank" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                        <div class="project-card-body">
-                            <h3 class="project-title">Bubble Sort Visualizer</h3>
-                            <p class="project-desc">
-                                An interactive Bubble Sort game that incorporates K-Means Clustering to visualize how the sorting algorithm groups and orders data over time.
-                            </p>
-                        </div>
-                        <div class="project-card-footer">
-                            <div class="project-tags">
-                                <span>JavaScript</span>
-                                <span>Algorithms</span>
-                                <span>Data Viz</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Hotel Booking & Billing Engine -->
-                    <div class="project-card">
-                        <div class="project-card-header">
-                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-                        </div>
-                        <div class="project-card-body">
-                            <h3 class="project-title">Hotel Booking & Billing Engine</h3>
-                            <p class="project-desc">
-                                A desktop system powered by a SQL relational backend with 15+ interconnected tables, transaction management, and stored procedures for booking generation.
-                            </p>
-                        </div>
-                        <div class="project-card-footer">
-                            <div class="project-tags">
-                                <span>C++</span>
-                                <span>SQL Server</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- MySQL Hotel Operations Schema -->
-                    <div class="project-card">
-                        <div class="project-card-header">
-                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-                        </div>
-                        <div class="project-card-body">
-                            <h3 class="project-title">MySQL Hotel Operations Schema</h3>
-                            <p class="project-desc">
-                                A normalized (BCNF) database design with full ER modeling, functional dependency analysis, and visual schema relational graphs.
-                            </p>
-                        </div>
-                        <div class="project-card-footer">
-                            <div class="project-tags">
-                                <span>MySQL</span>
-                                <span>ER Modeling</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Ride-Hailing Workflow Redesign -->
-                    <div class="project-card">
-                        <div class="project-card-header">
-                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-                        </div>
-                        <div class="project-card-body">
-                            <h3 class="project-title">Ride-Hailing Workflow Redesign</h3>
-                            <p class="project-desc">
-                                A Business Process Engineering study that restructured ride-hailing dispatch and matchmaking, cutting cancellation ratios by 60% in simulation.
-                            </p>
-                        </div>
-                        <div class="project-card-footer">
-                            <div class="project-tags">
-                                <span>BPE</span>
-                                <span>Workflow Simulation</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SJF Library Queue Simulator -->
-                    <div class="project-card">
-                        <div class="project-card-header">
-                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-                        </div>
-                        <div class="project-card-body">
-                            <h3 class="project-title">SJF Library Queue Simulator</h3>
-                            <p class="project-desc">
-                                Simulates book checkouts and returns using the Shortest Job First scheduling algorithm, visualizing waiting and turnaround times.
-                            </p>
-                        </div>
-                        <div class="project-card-footer">
-                            <div class="project-tags">
-                                <span>C++</span>
-                                <span>OS Algorithms</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pointer-Based Contact Manager -->
-                    <div class="project-card">
-                        <div class="project-card-header">
-                            <div class="folder-icon"><i class="fa-regular fa-folder-open"></i></div>
-                        </div>
-                        <div class="project-card-body">
-                            <h3 class="project-title">Pointer-Based Contact Manager</h3>
-                            <p class="project-desc">
-                                A console CRUD app built on dynamic singly linked lists, with alphabetical sorting, instant search, and persistent file I/O.
-                            </p>
-                        </div>
-                        <div class="project-card-footer">
-                            <div class="project-tags">
-                                <span>C++</span>
-                                <span>Data Structures</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Certificates Section -->
-        <section id="certificates" class="certificates-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="subtitle">05. Credentials</span>
-                    <h2 class="title">Certifications</h2>
-                    <div class="header-line"></div>
-                </div>
-
-                <div class="certificates-grid">
-                    <!-- Cert 1: Khizex Certificate -->
-                    <div class="cert-card cert-clickable" data-cert-src="assets/certificates/khizex-certificate.jpg" data-cert-preview="assets/certificates/khizex-certificate.jpg" data-cert-type="image" data-cert-title="Certificate of Completion — Khizex Software Solutions">
-                        <div class="cert-icon"><i class="fa-solid fa-award"></i></div>
-                        <div class="cert-content">
-                            <h3>Certificate of Completion</h3>
-                            <p class="cert-issuer">Khizex Software Solutions</p>
-                            <p class="cert-desc">Completed a 6-week production-engineering internship — Excellent (A) grade, 85% aggregate score across git discipline, code quality, technical defense, and public showcase.</p>
-                        </div>
-                        <span class="cert-view-tag"><i class="fa-solid fa-eye"></i> View Certificate</span>
-                        <div class="cert-hover-preview"><img src="assets/certificates/khizex-certificate.jpg" alt="" loading="lazy"></div>
-                    </div>
-
-                    <!-- Cert 2: Khizex Experience Certificate -->
-                    <div class="cert-card cert-clickable" data-cert-src="assets/certificates/khizex-experience-certificate.jpg" data-cert-preview="assets/certificates/khizex-experience-certificate.jpg" data-cert-type="image" data-cert-title="Experience Certificate — Khizex Software Solutions">
-                        <div class="cert-icon"><i class="fa-solid fa-file-shield"></i></div>
-                        <div class="cert-content">
-                            <h3>Experience Certificate</h3>
-                            <p class="cert-issuer">Khizex Software Solutions</p>
-                            <p class="cert-desc">Official record of the 6-week industrial internship (05 July – 16 August 2026) in Frontend Development, citing exemplary technical acumen and problem-solving skills.</p>
-                        </div>
-                        <span class="cert-view-tag"><i class="fa-solid fa-eye"></i> View Certificate</span>
-                        <div class="cert-hover-preview"><img src="assets/certificates/khizex-experience-certificate.jpg" alt="" loading="lazy"></div>
-                    </div>
-
-                    <!-- Cert 3: Khizex Letter of Recommendation -->
-                    <div class="cert-card cert-clickable" data-cert-src="assets/certificates/khizex-lor.jpg" data-cert-preview="assets/certificates/khizex-lor.jpg" data-cert-type="image" data-cert-title="Letter of Recommendation — Khizex Software Solutions">
-                        <div class="cert-icon"><i class="fa-solid fa-signature"></i></div>
-                        <div class="cert-content">
-                            <h3>Letter of Recommendation</h3>
-                            <p class="cert-issuer">Khizex Software Solutions</p>
-                            <p class="cert-desc">Highest endorsement from Umer Farooq, Co-Founder & CEO, citing exceptional technical proficiency, ownership of clean architecture, and strong cross-functional communication.</p>
-                        </div>
-                        <span class="cert-view-tag"><i class="fa-solid fa-eye"></i> View Certificate</span>
-                        <div class="cert-hover-preview"><img src="assets/certificates/khizex-lor.jpg" alt="" loading="lazy"></div>
-                    </div>
-
-                    <!-- Cert: Progree Certificate -->
-                    <div class="cert-card cert-clickable" data-cert-src="assets/certificates/progree-certificate.jpg" data-cert-preview="assets/certificates/progree-certificate.jpg" data-cert-type="image" data-cert-title="Certificate of Completion — Progree">
-                        <div class="cert-icon"><i class="fa-solid fa-award"></i></div>
-                        <div class="cert-content">
-                            <h3>Full Stack Development Internship</h3>
-                            <p class="cert-issuer">Progree</p>
-                            <p class="cert-desc">Certificate of Completion for a one-month Full Stack Development internship, 20 August to 20 September 2026 (Verification ID: PG-419).</p>
-                        </div>
-                        <span class="cert-view-tag"><i class="fa-solid fa-eye"></i> View Certificate</span>
-                        <div class="cert-hover-preview"><img src="assets/certificates/progree-certificate.jpg" alt="" loading="lazy"></div>
-                    </div>
-
-                    <!-- Cert: Progree LOR -->
-                    <div class="cert-card cert-clickable" data-cert-src="assets/certificates/progree-lor.jpg" data-cert-preview="assets/certificates/progree-lor.jpg" data-cert-type="image" data-cert-title="Letter of Recommendation — Progree">
-                        <div class="cert-icon"><i class="fa-solid fa-signature"></i></div>
-                        <div class="cert-content">
-                            <h3>Letter of Recommendation</h3>
-                            <p class="cert-issuer">Progree</p>
-                            <p class="cert-desc">Recommendation from Umar Mushtaq, Founder &amp; CEO, citing excellent analytical skills, quick adaptation to emerging technologies, and strong team collaboration.</p>
-                        </div>
-                        <span class="cert-view-tag"><i class="fa-solid fa-eye"></i> View Certificate</span>
-                        <div class="cert-hover-preview"><img src="assets/certificates/progree-lor.jpg" alt="" loading="lazy"></div>
-                    </div>
-
-                    <!-- Cert 4: CodeAlpha -->
-                    <div class="cert-card cert-clickable" data-cert-src="assets/certificates/codealpha-certificate.pdf" data-cert-type="pdf" data-cert-title="Frontend Development Internship — CodeAlpha">
-                        <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
-                        <div class="cert-content">
-                            <h3>Frontend Development Internship</h3>
-                            <p class="cert-issuer">CodeAlpha</p>
-                            <p class="cert-desc">Active participant in the CodeAlpha Virtual Internship Program, Frontend Development track — January to February 2026.</p>
-                        </div>
-                        <span class="cert-view-tag"><i class="fa-solid fa-eye"></i> View Certificate</span>
-                    </div>
-
-                    <!-- Cert 5: SoloLearn SQL -->
-                    <div class="cert-card cert-clickable" data-cert-src="assets/certificates/sololearn-sql.jpg" data-cert-preview="assets/certificates/sololearn-sql.jpg" data-cert-type="image" data-cert-title="Introduction to SQL — SoloLearn">
-                        <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
-                        <div class="cert-content">
-                            <h3>Introduction to SQL</h3>
-                            <p class="cert-issuer">SoloLearn</p>
-                            <p class="cert-desc">Validated knowledge on relational databases, query structure, indexing, aggregation, and joining techniques.</p>
-                        </div>
-                        <span class="cert-view-tag"><i class="fa-solid fa-eye"></i> View Certificate</span>
-                        <div class="cert-hover-preview"><img src="assets/certificates/sololearn-sql.jpg" alt="" loading="lazy"></div>
-                    </div>
-                    <!-- Cert 6: SoloLearn HTML -->
-                    <div class="cert-card cert-clickable" data-cert-src="assets/certificates/sololearn-html.jpg" data-cert-preview="assets/certificates/sololearn-html.jpg" data-cert-type="image" data-cert-title="Introduction to HTML — SoloLearn">
-                        <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
-                        <div class="cert-content">
-                            <h3>Introduction to HTML</h3>
-                            <p class="cert-issuer">SoloLearn</p>
-                            <p class="cert-desc">Covered semantic tags, structure creation, embedding media, and document structure essentials.</p>
-                        </div>
-                        <span class="cert-view-tag"><i class="fa-solid fa-eye"></i> View Certificate</span>
-                        <div class="cert-hover-preview"><img src="assets/certificates/sololearn-html.jpg" alt="" loading="lazy"></div>
-                    </div>
-                    <!-- Cert 5: Volunteer -->
-                    <div class="cert-card">
-                        <div class="cert-icon"><i class="fa-solid fa-hands-helping"></i></div>
-                        <div class="cert-content">
-                            <h3>Volunteer Certificate (x2)</h3>
-                            <p class="cert-issuer">Alkhidmat Foundation</p>
-                            <p class="cert-desc">Awarded for active community participation, leadership, and providing volunteer support during public events.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="certificates-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="subtitle">06. Endorsements</span>
-                    <h2 class="title">Testimonials</h2>
-                    <div class="header-line"></div>
-                </div>
-
-                <div class="certificates-grid">
-                    <div class="cert-card testimonial-card">
-                        <div class="cert-icon"><i class="fa-solid fa-quote-left"></i></div>
-                        <div class="cert-content">
-                            <p class="cert-desc testimonial-quote">"Mahnoor consistently demonstrated a stellar work ethic, exceptional technical proficiency, and a genuine passion for software engineering excellence."</p>
-                            <h3 class="testimonial-name">Umer Farooq</h3>
-                            <p class="cert-issuer">Co-Founder &amp; CEO, Khizex Software Solutions</p>
-                        </div>
-                    </div>
-                    <div class="cert-card testimonial-card">
-                        <div class="cert-icon"><i class="fa-solid fa-quote-left"></i></div>
-                        <div class="cert-content">
-                            <p class="cert-desc testimonial-quote">"You're a technically exceptional engineer who understands modern browser APIs (Web Workers, Service Workers, and raw IndexedDB) and state architectures... represents a solid hire for a core frontend/architecture role."</p>
-                            <h3 class="testimonial-name">Khizex Supervisor</h3>
-                            <p class="cert-issuer">Task Evaluation — Offline-First Shoe Store Frontend</p>
-                        </div>
-                    </div>
-                    <div class="cert-card testimonial-card">
-                        <div class="cert-icon"><i class="fa-solid fa-quote-left"></i></div>
-                        <div class="cert-content">
-                            <p class="cert-desc testimonial-quote">"She has excellent analytical skills and quickly acquired new skills and adeptly adapted to emerging technologies, demonstrating a high level of productivity."</p>
-                            <h3 class="testimonial-name">Umar Mushtaq</h3>
-                            <p class="cert-issuer">Founder &amp; CEO, Progree</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Certificate Preview Modal -->
-        <div id="cert-modal" class="cert-modal" aria-hidden="true">
-            <div class="cert-modal-backdrop" data-cert-close></div>
-            <div class="cert-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="cert-modal-title">
-                <div class="cert-modal-header">
-                    <h3 id="cert-modal-title">Certificate</h3>
-                    <div class="cert-modal-actions">
-                        <a id="cert-modal-download" href="#" download class="cert-modal-download" aria-label="Download certificate"><i class="fa-solid fa-download"></i></a>
-                        <button class="cert-modal-close" data-cert-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
-                    </div>
-                </div>
-                <div class="cert-modal-body" id="cert-modal-body">
-                    <!-- image or PDF embed injected here by JS -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="subtitle">06. Get In Touch</span>
-                    <h2 class="title">Contact Me</h2>
-                    <div class="header-line"></div>
-                </div>
-
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <h3>Let's Collaborate!</h3>
-                        <p class="contact-intro">
-                            I am always open to discussing new software development opportunities, internship roles, mobile app ideas, or DBMS integrations. Drop me a message and I'll get back to you!
-                        </p>
-                        
-                        <div class="contact-details">
-                            <a href="mailto:Sohailmahnoor52@gmail.com" class="contact-item">
-                                <div class="item-icon"><i class="fa-regular fa-envelope"></i></div>
-                                <div class="item-text">
-                                    <span>Email Me</span>
-                                    <strong>Sohailmahnoor52@gmail.com</strong>
-                                </div>
-                                <button type="button" class="copy-email-btn" id="copy-email-btn" aria-label="Copy email address"><i class="fa-regular fa-copy"></i></button>
-                            </a>
-                            <a href="tel:+923201441227" class="contact-item">
-                                <div class="item-icon"><i class="fa-solid fa-mobile-screen"></i></div>
-                                <div class="item-text">
-                                    <span>Call Me</span>
-                                    <strong>(+92) 320-1441227</strong>
-                                </div>
-                            </a>
-                            <div class="contact-item">
-                                <div class="item-icon"><i class="fa-solid fa-location-dot"></i></div>
-                                <div class="item-text">
-                                    <span>Location</span>
-                                    <strong>Lahore, Punjab, Pakistan</strong>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="contact-socials">
-                            <h4>Connect with me on social platforms:</h4>
-                            <div class="social-links">
-                                <a href="https://www.linkedin.com/in/mahnoor-sohail-a1449936b/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                                <a href="https://github.com/mahnoor28-code" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-form-container">
-                        <form id="contact-form" class="contact-form" autocomplete="off">
-                            <div class="form-group">
-                                <input type="text" id="name" name="name" placeholder=" " required>
-                                <label for="name">Your Name</label>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="email" name="email" placeholder=" " required>
-                                <label for="email">Your Email Address</label>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="subject" name="subject" placeholder=" " required>
-                                <label for="subject">Subject</label>
-                            </div>
-                            <div class="form-group">
-                                <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
-                                <label for="message">Your Message</label>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-submit">
-                                Send Message <i class="fa-solid fa-paper-plane"></i>
-                            </button>
-                            <div class="form-message" id="form-message"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Floating Back-to-Top Button -->
-    <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
-
-    <!-- Toast Notification -->
-    <div id="toast" class="toast" role="status" aria-live="polite"></div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <p class="copyright">Designed & Built by Mahnoor Sohail &copy; 2026. All Rights Reserved.</p>
-            <a href="#home" class="to-top" aria-label="Scroll back to top">
-                <i class="fa-solid fa-arrow-up"></i>
-            </a>
-        </div>
-    </footer>
-
-    <!-- Custom JS -->
-    <script src="script.js"></script>
+<div id="cert-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="cert-title">
+  <div class="modal-bg" data-close></div>
+  <div class="modal-box">
+    <div class="modal-head"><h3 id="cert-title">Certificate</h3><div><a id="cert-dl" href="#" download aria-label="Download"><i class="fa-solid fa-download"></i></a><button class="modal-close" data-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button></div></div>
+    <div class="modal-body" id="cert-body"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<button class="to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<script src="script.js"></script>
 </body>
 </html>
